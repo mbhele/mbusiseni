@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <style>
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            background-color: #dd0000;
+            color: #333;
+            overflow-x: hidden;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             min-height: 100vh;
+            position: relative;
         }
 
         .image-container {
@@ -26,6 +31,26 @@
             color: white;
             text-align: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            animation: zoomIn 1s ease-in-out;
         }
 
         .text-container {
@@ -34,6 +59,11 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-button {
@@ -44,10 +74,22 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
 
         #services {
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             padding: 20px;
             text-align: center;
             display: flex;
@@ -55,6 +97,9 @@
             align-items: center;
             position: relative;
             width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
 
         .card-container {
@@ -63,16 +108,22 @@
             flex-wrap: wrap;
             transition: transform 0.5s ease;
             width: 100%;
-            display: none;
         }
 
         .card {
             width: 200px;
-            background-color: white;
+            background-color: #fff;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 10px;
             display: block;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         #form {
@@ -82,9 +133,10 @@
         .navigation-dots {
             position: absolute;
             bottom: 10px;
-            left: 40%;
+            left: 50%;
             transform: translateX(-50%);
             display: flex;
+            z-index: 2;
         }
 
         .dot {
@@ -96,13 +148,23 @@
             cursor: pointer;
         }
 
+        .dot.active {
+            background-color: #4CAF50;
+        }
+
         .bio {
             text-align: center;
             padding: 0px;
         }
 
         footer {
-            /* Your footer styles here */
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
 
         /* Media queries for responsiveness */
@@ -117,28 +179,36 @@
                 width: 100%;
             }
         }
+
+        /* Keyframe Animation */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="grid-container">
         <div class="image-container">
-            <!-- Your image content here -->
+            <img src="images/your_image.jpg" alt="Mbusiseni Mbhele">
         </div>
         <div class="text-container">
             <a href="https://wa.me/27712542404" class="cta-button">Get in touch on WhatsApp: +27 71 254 2404</a>
-            <h1>I am able to help with your website</h1>
+            <h1>Hello, I'm Mbusiseni Mbhele</h1>
+            <p>I will design a system for you and market your business effectively. Let's elevate your digital presence and achieve your goals together!</p>
             <div class="navigation-dots">
-                <div class="dot" onclick="showSlide(0)"></div>
+                <div class="dot active" onclick="showSlide(0)"></div>
                 <div class="dot" onclick="showSlide(1)"></div>
                 <div class="dot" onclick="showSlide(2)"></div>
-                
             </div>
             <section id="services">
-            
-          
                 <div class="slide bio">
                     <h1>🚀 Web Design & Marketing Maestro 🚀</h1>
-                    <p>Hey, I'm [Your Name]—your one-stop solution for web design and marketing brilliance. 🌐 Crafting visually stunning websites and orchestrating strategic marketing campaigns is my jam. Let's elevate your digital game together! 💻✨ #WebDesign #MarketingPro</p>
+                    <p>Hey, I'm Mbusiseni Mbhele—your one-stop solution for web design and marketing brilliance. 🌐 Crafting visually stunning websites and orchestrating strategic marketing campaigns is my jam. Let's elevate your digital game together! 💻✨ #WebDesign #MarketingPro</p>
                 </div>
                 <div class="slide card-container">
                     <div class="card" id="what-we-do">We listen</div>
@@ -149,19 +219,19 @@
                 <div class="slide" id="form">
                     <form action="/action.php">
                         <label for="fname">First name:</label><br>
-                        <input type="text" id="fname" value="Mike"><br><br>
+                        <input type="text" id="fname" value="Mbusiseni"><br><br>
                         <label for="lname">Last name:</label><br>
-                        <input type="text" id="lname" value="Walker"><br><br>
+                        <input type="text" id="lname" value="Mbhele"><br><br>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
-             
             </section>
         </div>
     </div>
 
     <footer>
         <!-- Your footer content here -->
+        © 2024 Your Company Name. All rights reserved.
     </footer>
 
     <script>
@@ -176,7 +246,7 @@
             });
 
             dots.forEach((dot, index) => {
-                dot.style.backgroundColor = index === slideIndex ? '#4CAF50' : '#bbb';
+                dot.classList.toggle('active', index === slideIndex);
             });
 
             currentSlide = slideIndex;
