@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+        }
+
+        .image-container {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        #services {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 80%;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            transition: transform 0.5s ease;
+            width: 100%;
+            display: none;
+        }
+
+        .card {
+            width: 200px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            display: block;
+        }
+
+        #form {
+            display: none;
+        }
+
+        .navigation-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 40%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .bio {
+            text-align: center;
+            padding: 0px;
+        }
+
+        footer {
+            /* Your footer styles here */
+        }
+
+        /* Media queries for responsiveness */
+        @media only screen and (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .text-container {
+                padding: 10px;
+            }
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="image-container">
+            <!-- Your image content here -->
+        </div>
+        <div class="text-container">
+            <a href="https://wa.me/27712542404" class="cta-button">Get in touch on WhatsApp: +27 71 254 2404</a>
+            <h1>I am able to help with your website</h1>
+            <div class="navigation-dots">
+                <div class="dot" onclick="showSlide(0)"></div>
+                <div class="dot" onclick="showSlide(1)"></div>
+                <div class="dot" onclick="showSlide(2)"></div>
+                
+            </div>
+            <section id="services">
+            
+          
+                <div class="slide bio">
+                    <h1>🚀 Web Design & Marketing Maestro 🚀</h1>
+                    <p>Hey, I'm [Your Name]—your one-stop solution for web design and marketing brilliance. 🌐 Crafting visually stunning websites and orchestrating strategic marketing campaigns is my jam. Let's elevate your digital game together! 💻✨ #WebDesign #MarketingPro</p>
+                </div>
+                <div class="slide card-container">
+                    <div class="card" id="what-we-do">We listen</div>
+                    <div class="card" id="who-i-am">We analyze</div>
+                    <div class="card" id="downloads">We build</div>
+                    <div class="card" id="form">We report</div>
+                </div>
+                <div class="slide" id="form">
+                    <form action="/action.php">
+                        <label for="fname">First name:</label><br>
+                        <input type="text" id="fname" value="Mike"><br><br>
+                        <label for="lname">Last name:</label><br>
+                        <input type="text" id="lname" value="Walker"><br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+             
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(slideIndex) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+
+            slides.forEach((slide, index) => {
+                slide.style.display = index === slideIndex ? 'block' : 'none';
+            });
+
+            dots.forEach((dot, index) => {
+                dot.style.backgroundColor = index === slideIndex ? '#4CAF50' : '#bbb';
+            });
+
+            currentSlide = slideIndex;
+        }
+    </script>
+</body>
+</html>
