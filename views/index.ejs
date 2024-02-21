@@ -3,179 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+   <style>
+    /* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Open+Sans:wght@300&family=Protest+Guerrilla&family=Protest+Strike&display=swap') */
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: #000000; /* Theme color - black */
+            color: #fff;
             overflow-x: hidden;
+            .protest-guerrilla-regular {
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow: hidden; /* Prevent scrollbars during animation */
+}
+
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        .image-container {
-            background-image: url('images/bg.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-container::before {
-            content: '';
-            position: absolute;
+        .navbar {
+            position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
+            background-color: #000000; /* Theme color - black */
+            z-index: 1000;
+            padding: 10px 0;
+            text-align: center;
         }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            animation: zoomIn 1s ease-in-out;
-        }
-
-        .text-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background-color: #000000;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+        .navbar a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            margin: 0 20px;
+            font-size: .7em;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
-        .cta-button:hover {
-            background-color: #45a049;
+        .navbar a:hover {
+            color: #4CAF50; /* Accent color */
         }
 
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        #services {
-            background-color: #f9f9f9;
-            padding: 20px;
+        .header {
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 100px 40px;
+            background-color: #000000; /* Theme color - black */
+            margin-top: 60px;
             position: relative;
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            border-top: 0.1px solid #5e4c4c;
+            border-bottom: 3px solid #14AE5C;
+            /* border-right: 5px solid #14AE5C; */
         }
 
-        .card-container {
+        .header img {
+            height: 30vh;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            z-index: 999;
+        }
+
+        .services {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            transition: transform 0.5s ease;
-            width: 100%;
+            padding: 40px;
+            background-color: #000000;
         }
 
-        .card {
-            width: 200px;
-            background-color: #fff;
+        
+        .pricing {
+            text-align: center;
+            padding: 40px;
+            background-color: #000000;
+        }
+
+        .quote {
+            text-align: center;
+            padding: 40px;
+            background-color: #000000; /* Theme color - black */
+        }
+
+        
+
+        .client-logo {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 40px;
+            background-color: #9b59b6;
+        }
+
+        .reviews {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 40px;
+            background-color: #14AE5C;
+        }
+
+        .review-card {
+            width: 300px;
+            background-color: #000000;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 10px;
+            margin: 20px;
             display: block;
             border-radius: 8px;
             transition: box-shadow 0.3s ease;
             cursor: pointer;
-        }
-
-        .card:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        #form {
-            display: none;
-        }
-
-        .navigation-dots {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 2;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background-color: #bbb;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .dot.active {
-            background-color: #4CAF50;
-        }
-
-        .bio {
             text-align: center;
-            padding: 20px;
+            color: #ffffff;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            /* background-color: #333; */
             color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000000; /* Theme color - black */
+            color: #fff;
+            overflow-x: hidden;
         }
 
-        /* Media queries for responsiveness */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #000000; /* Theme color - black */
+            z-index: 1000;
+            padding: 20px 0;
+            text-align: center;
+           
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #4CAF50; /* Accent color */
+        }
+
+#mbusiseni{
+     height: 50vh;
+     margin-bottom: 4rem;
+   
+}
+
+h1{
+    .protest-strike-regular {
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+span{
+    color: #14AE5C;
+}
+
+#qoute{
+    color: #14AE5C !important;
+}
+
+#Elevate{
+    font-weight: 500px;
+    color: #14AE5C !important;
+}
+
+#web{
+    color: #f39c12;
+}
+
+}
+
+
+.package-table {
+    width: 50%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto; /* Add this line to center the table */
+    margin-top: 20px;
+}
+.package-table th, .package-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.package-table th {
+    background-color: #000000;
+}
+
+.package-table td ul {
+    margin: 0;
+    padding: 0;
+}
+
+.package-table td li {
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+
+.package-table td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.select-button {
+        background-color: #e70909;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .select-button:hover {
+        background-color: #45a049;
+    }
+
+
+
+ 
+/* .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    animation: fadeIn 1s ease-out;
+    z-index: 1;
+} */
+
+
+.massive-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #14AE5C;
+    animation: moveRight 2s ease-out;
+    z-index: 2;
+}
+
+
+@keyframes moveRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Apply styles only after the page has loaded */
+body.page-loaded .massive-div {
+    animation: moveRight 2s ease-out;
+}
+/* Apply styles only after the page has loaded */
+body.page-loaded .massive-div {
+    animation: moveRight 2s ease-out, fadeOut 1s ease-out 1s;
+
+
+} 
+
+
+
+button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+button.red {
+            background-color: #FF0000;
+            color: #fff;
+        }
+        button.snake-border {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #14AE5C;
+            color: #fff;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .snake-border::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: linear-gradient(to right, #FFD700, #FF6347, #20B2AA, #FFD700);
+            animation: snakeMove 5s linear infinite;
+        }
+
+        @keyframes snakeMove {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+
+        .clients {
+    overflow: hidden;
+}
+
+.company-slider {
+    white-space: nowrap;
+    animation: slide infinite linear 20s;
+}
+
+.company-card {
+    display: inline-block;
+    padding: 0 10px; /* Add some spacing between companies */
+    font-weight: 900;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+/* Media queries for responsiveness */
         @media only screen and (max-width: 600px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-            }
-            .text-container {
-                padding: 10px;
-            }
-            .card {
+            .service-card,
+            .review-card,
+            .client-logo {
                 width: 100%;
             }
         }
@@ -190,67 +392,264 @@
             }
         }
     </style>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W3D6TJF8');</script>
+    <!-- End Google Tag Manager -->
+
+
+    
 </head>
 <body>
-    <div class="grid-container">
-        <div class="image-container">
-            <img src="images/your_image.jpg" alt="Mbusiseni Mbhele">
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3D6TJF8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="massive-div"></div>
+
+    <div class="navbar">
+        <a href="#services"> Services</a>
+        <a href="#pricing"> Pricing</a>
+        <a id="qoute" href="#quote" style="color: #14AE5C"> Request a Quote</a>
+        
+        <a href="#contact"> Contact Us</a>
+        <a href="#reviews"> Client Reviews</a>
+        <a href="https://wa.me/27712542404?text=Consultation%20Free" target="_blank">FREE Online Consultation</a>
+
+
+
+    </div>
+
+    <div class="header" id="home">
+        <img id="mbusiseni" style="z-index: 1;" src="images/mbusi.png" alt="">
+        <h1 id="web">Mbusiseni Mbhele <br>Web</span> Design & <span> Marketing</span></h1>
+        <p><span id="Elevate">Elevate</span> your digital presence with stunning websites and strategic marketing campaigns!</p>
+        <button class="red" style="font-weight: bolder;">Help me get more clients</button>
+        <button class="snake-border" style="font-weight: bolder;">
+            I want a website first
+        </button>
+    </div>
+  
+    
+    <!-- Moved "Select your package" heading above the table -->
+ 
+
+    <div class="clients" id="clients">
+        <h2 style="text-align: center;">Who have We Have Worked With</h2>
+        <br>
+    
+        <div class="company-slider">
+            <div class="company-card">Abdullar dealership</div>
+            <div class="company-card">Jabulanworks</div>
+            <div class="company-card">B&T Plumbing</div>
+             <div class="company-card">feel at home in capetown</div>
+            <div class="company-card">University of Stellenbosch</div>
+            <div class="company-card">Innovation for life</div>
+            <div class="company-card">Collenjservices</div>
+             <div class="company-card">Prof Jean Greyling</div>
+             <div class="company-card">Acutesolar</div>
+            <div class="company-card">Dr Matsha</div>
+            <div class="company-card">CoffeeMM</div>
+            <div class="company-card">Able-energy</div>
+            <div class="company-card">Draglearn</div>
+            <div class="company-card">Govan Mbeki Mathematics Development Centre’s Incubator</div>
+            <div class="company-card">More...</div>
+            <!-- Add more company cards as needed -->
         </div>
-        <div class="text-container">
-            <a href="https://wa.me/27712542404" class="cta-button">Get in touch on WhatsApp: +27 71 254 2404</a>
-            <h1>Hello, I'm Mbusiseni Mbhele</h1>
-            <p>I will design a system for you and market your business effectively. Let's elevate your digital presence and achieve your goals together!</p>
-            <div class="navigation-dots">
-                <div class="dot active" onclick="showSlide(0)"></div>
-                <div class="dot" onclick="showSlide(1)"></div>
-                <div class="dot" onclick="showSlide(2)"></div>
-            </div>
-            <section id="services">
-                <div class="slide bio">
-                    <h1>🚀 Web Design & Marketing Maestro 🚀</h1>
-                    <p>Hey, I'm Mbusiseni Mbhele—your one-stop solution for web design and marketing brilliance. 🌐 Crafting visually stunning websites and orchestrating strategic marketing campaigns is my jam. Let's elevate your digital game together! 💻✨ #WebDesign #MarketingPro</p>
-                </div>
-                <div class="slide card-container">
-                    <div class="card" id="what-we-do">We listen</div>
-                    <div class="card" id="who-i-am">We analyze</div>
-                    <div class="card" id="downloads">We build</div>
-                    <div class="card" id="form">We report</div>
-                </div>
-                <div class="slide" id="form">
-                    <form action="/action.php">
-                        <label for="fname">First name:</label><br>
-                        <input type="text" id="fname" value="Mbusiseni"><br><br>
-                        <label for="lname">Last name:</label><br>
-                        <input type="text" id="lname" value="Mbhele"><br><br>
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-            </section>
+    </div>
+    
+    <div class="pricing" id="pricing">
+        <h2>Our Pricing</h2>
+        <p>We offer competitive prices for our high-quality services. Contact us for detailed quotes.</p>
+    </div>
+    <table class="package-table">
+        <!-- ... (existing table structure) ... -->
+        <tbody>
+            <tr>
+                <!-- ... (existing row content) ... -->
+                <td>Basic</td>
+                <td>
+                    <ul>
+                        <li>✓ Small 3 page simple design website</li>
+                        <li>✓ Functional website</li>
+                        <li>✓ 3 pages</li>
+                        <li>✓ 1 revision</li>
+                        <li>✓ 7 days delivery</li>
+                    </ul>
+                </td>
+                <td>R 7,452</td>
+                <td><button class="select-button" onclick="selectService('Basic')">Select</button></td>
+            </tr>
+            <tr>
+                <td>Free One-Page Website</td>
+                <td>
+                    <ul>
+                        <li>✓ One-page website design</li>
+                        <li>✓ Limited customization</li>
+                    </ul>
+                </td>
+                <td style="color: red; font-weight: bold;">FREE</td>
+                <td><button class="select-button" onclick="selectService('Free One-Page')">Select</button></td>
+            </tr>
+            <tr>
+                <!-- ... (existing row content) ... -->
+                <td>Standard</td>
+                <td>
+                    <ul>
+                        <li>✓ Medium 6 page standard website</li>
+                        <li>✓ Content upload</li>
+                        <li>✓ 6 pages</li>
+                        <li>✓ 2 revisions</li>
+                        <li>✓ 1 day delivery</li>
+                    </ul>
+                </td>
+                <td>R 16,393</td>
+                <td><button class="select-button" onclick="selectService('Standard')">Select</button></td>
+            </tr>
+            <tr>
+                <!-- ... (existing row content) ... -->
+                <td>Premium</td>
+                <td>
+                    <ul>
+                        <li>✓ High-quality website + CMS</li>
+                        <li>✓ 8 pages</li>
+                        <li>✓ 3 revisions</li>
+                        <li>✓ 1 day delivery</li>
+                    </ul>
+                </td>
+                <td>R 29,806</td>
+                <td><button class="select-button" onclick="selectService('Premium')">Select</button></td>
+            </tr>
+            <tr>
+                <td>SEO</td>
+                <td>
+                    <ul>
+                        <li>✓ On-page and off-page optimization</li>
+                        <li>✓ Keyword research</li>
+                        <li>✓ SEO audit</li>
+                        <li>✓ Monthly performance reports</li>
+                    </ul>
+                </td>
+                <td>Contact us for a quote</td>
+                <td><button class="select-button" onclick="selectService('SEO')">Select</button></td>
+            </tr>
+            <tr>
+                <td>Facebook Management</td>
+                <td>
+                    <ul>
+                        <li>✓ Social media strategy development</li>
+                        <li>✓ Content creation and posting</li>
+                        <li>✓ Engagement monitoring</li>
+                    </ul>
+                </td>
+                <td>Contact us for a quote</td>
+                <td><button class="select-button" onclick="selectService('Facebook Management')">Select</button></td>
+            </tr>
+            <tr>
+                <td>Facebook Ads</td>
+                <td>
+                    <ul>
+                        <li>✓ Ad campaign setup and management</li>
+                        <li>✓ Target audience research</li>
+                        <li>✓ Ad performance analytics</li>
+                    </ul>
+                </td>
+                <td>Contact us for a quote</td>
+                <td><button class="select-button" onclick="selectService('Facebook Ads')">Select</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+  
+
+    <div class="quote" id="quote">
+        <h2>Request a Quote</h2>
+        <p>Fill out the form below to get a personalized quote for your project.</p>
+        <!-- Add your quote form here -->
+    </div>
+
+
+
+    <div class="reviews" id="reviews">
+        <div class="review-card">
+            <h2>Client Review 1</h2>
+            <p>"Amazing work! Their team understood our vision and delivered beyond our expectations."</p>
         </div>
+        <div class="review-card">
+            <h2>Client Review 2</h2>
+            <p>"The website design is modern and visually appealing. Great communication throughout the project."</p>
+        </div>
+        <div class="review-card">
+            <h2>Client Review 3</h2>
+            <p>"Highly recommended! Professional, creative, and efficient."</p>
+        </div>
+        <!-- Add more reviews as needed -->
     </div>
 
     <footer>
         <!-- Your footer content here -->
-        © 2024 Your Company Name. All rights reserved.
+        © 2024 Mbusiseni Mbhele. All rights reserved.
+        <p>Why Choose Us? We bring your ideas to life with creativity and expertise!</p>
     </footer>
 
     <script>
-        let currentSlide = 0;
 
-        function showSlide(slideIndex) {
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.dot');
+document.body.classList.add('page-loaded');
 
-            slides.forEach((slide, index) => {
-                slide.style.display = index === slideIndex ? 'block' : 'none';
+
+  const opacityInterval = setInterval(() => {
+            const massiveDiv = document.querySelector('.massive-div');
+            if (massiveDiv) {
+                let currentOpacity = parseFloat(getComputedStyle(massiveDiv).opacity);
+                currentOpacity -= 0.1; // You can adjust the decrement value
+                massiveDiv.style.opacity = Math.max(0, currentOpacity).toString();
+
+                // Check if opacity has reached zero and remove the element
+                if (currentOpacity <= 0) {
+                    clearInterval(opacityInterval); // Stop the interval
+                    massiveDiv.remove(); // Remove the element
+                }
+            }
+        }, 1000);
+    
+        // Add smooth scrolling to anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
+        });
 
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === slideIndex);
-            });
 
-            currentSlide = slideIndex;
-        }
+        
+        // Get the element with the ID 'web'
+        var webElement = document.getElementById('web');
+
+        // Get the content of the element
+        var content = webElement.textContent;
+
+        // Wrap the first letter in a span with a specific style
+        var styledContent = '<span style="color: #14AE5C;">' + content.charAt(0) + '</span>' + content.slice(1);
+
+        // Set the modified content back to the element
+        webElement.innerHTML = styledContent;
+
+        function selectService(service) {
+        alert('Service selected: ' + service);
+        // You can customize this function to handle the selected service as needed
+    }
+
+
     </script>
 </body>
 </html>
