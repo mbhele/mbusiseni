@@ -3,20 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Contact - Your Name</title>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: -50vh;
+    background-color: #06742e; /* Updated background color */
+}
+
+.container {
+    width: 80%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+    </style>
 </head>
 <body>
-    <section id="contact">
-        <h2>Contact Me</h2>
+    <div class="container">
+        <h1>Contact Us</h1>
         <form action="/submit" method="post">
-            <!-- Add your form fields here -->
-            <button type="submit">Submit</button>
+            <div class="form-group">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName">
+            </div>
+            <div class="form-group">
+                <label for="website">Website:</label>
+                <input type="text" id="website" name="website">
+            </div>
+            <div class="form-group">
+                <label for="logo">Logo:</label>
+                <select id="logo" name="logo">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numClients">Number of Clients:</label>
+                <input type="number" id="numClients" name="numClients">
+            </div>
+            <div class="form-group">
+                <label for="websiteType">Website Type:</label>
+                <select id="websiteType" name="websiteType">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="big">Big</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="industry">Industry:</label>
+                <input type="text" id="industry" name="industry" value="Plumbing" readonly>
+            </div>
+            <div class="form-group">
+                <label for="agent">Agent:</label>
+                <select id="agent" name="agent">
+                    <option value="single">Single</option>
+                    <option value="multiple">Multiple</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="ads">Ads:</label>
+                <input type="checkbox" id="facebookAds" name="facebookAds">
+                <label for="facebookAds">Facebook Ads</label><br>
+                <input type="checkbox" id="onlinePaymentAds" name="onlinePaymentAds">
+                <label for="onlinePaymentAds">Online Payment Ads</label><br>
+                <input type="checkbox" id="whatsappAds" name="whatsappAds">
+                <label for="whatsappAds">WhatsApp Ads</label>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
         </form>
-    </section>
-
-    <footer>
-        <!-- Your footer content here -->
-    </footer>
+    </div>
 </body>
 </html>

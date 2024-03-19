@@ -14,7 +14,7 @@
             font-family: 'Roboto', sans-serif;
             background-color: #000000; /* Theme color - black */
             color: #fff;
-            overflow-x: hidden;
+      
             .protest-guerrilla-regular {
   font-family: "Protest Guerrilla", sans-serif;
   font-weight: 400;
@@ -25,28 +25,54 @@
         }
 
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #000000; /* Theme color - black */
-            z-index: 1000;
-            padding: 10px 0;
-            text-align: center;
-        }
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #000000; /* Theme color - black */
+        z-index: 1000;
+        padding: 10px 0;
+        text-align: center;
+    }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: .7em;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: .7em;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+    }
 
-        .navbar a:hover {
-            color: #4CAF50; /* Accent color */
-        }
+    .navbar a::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: #4CAF50; /* Accent color */
+        border-radius: 70%;
+        transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+        z-index: -1;
+    }
 
+    .navbar a:hover::before {
+        width: 100%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+    }
+
+    .navbar a:hover {
+        color: #ffffff !important; /* Accent color */
+    }
+        #review{
+            background-color:#4CAF50;
+            border-radius: 48%;
+            padding: 1.0rem;
+            color: #000000 !important; /* Accent color */
+        }
         .header {
             text-align: center;
             padding: 100px 40px;
@@ -55,6 +81,7 @@
             position: relative;
             border-top: 0.1px solid #5e4c4c;
             border-bottom: 3px solid #14AE5C;
+            z-index: 999;
             /* border-right: 5px solid #14AE5C; */
         }
 
@@ -168,11 +195,17 @@
             color: #4CAF50; /* Accent color */
         }
 
-#mbusiseni{
-     height: 50vh;
-     margin-bottom: 4rem;
-   
+        #mbusiseni {
+ 
+   height: 60vh;
+   z-index: -1;
+   margin-top: 1.3rem;
+   margin-left: 1rem;
+
 }
+
+
+
 
 h1{
     .protest-strike-regular {
@@ -196,6 +229,7 @@ span{
 
 #web{
     color: #f39c12;
+    z-index: 999;
 }
 
 }
@@ -216,7 +250,7 @@ span{
 }
 
 .package-table th {
-    background-color: #000000;
+    background-color: #4CAF50;
 }
 
 .package-table td ul {
@@ -268,7 +302,7 @@ span{
 
 .massive-div {
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -390,7 +424,116 @@ button.red {
             to {
                 transform: scale(1);
             }
+
+
+
+            
         }
+
+        @media only screen and (max-width: 375px) {
+            .package-table {
+    width: 2%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto; /* Add this line to center the table */
+    margin-top: 20px;
+}
+        }
+
+        /* ----------
+        
+        
+        */
+
+        
+
+/* Your existing styles remain the same */
+
+/* For devices with a screen width of 768px and below (tablets and smaller devices) */
+@media only screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; /* Display hamburger menu on smaller screens */
+        flex-direction: column; /* Align the hamburger bars vertically */
+        cursor: pointer; /* Add cursor pointer for better UX */
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 3px 0;
+        transition: transform 0.4s, opacity 0.4s ease-in-out; /* Add transition for smoother animation */
+    }
+
+    /* Rotate the first and third bars to form an 'X' shape when menu is opened */
+    .menu-items.show .bar:first-child {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-items.show .bar:nth-child(2) {
+        opacity: 0; /* Hide the middle bar when menu is opened */
+    }
+
+    .menu-items.show .bar:last-child {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu-items {
+        display: none;
+    }
+
+    .menu-items.show {
+        display: block;
+    }
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+        font-size: .6em;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    
+.package-table {
+    width: 10%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto; /* Add this line to center the table */
+    margin-top: 20px;
+}
+.package-table th, .package-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.package-table th {
+    background-color: #4CAF50;
+}
+
+.package-table td ul {
+    margin: 0;
+    padding: 0;
+}
+
+.package-table td li {
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+
+.package-table td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+}
+
+
+
     </style>
 
     <!-- Google Tag Manager -->
@@ -410,32 +553,39 @@ button.red {
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3D6TJF8"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <div class="navbar">
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="menu-items" id="menuItems">
+            <a href="#home">Home</a>
+            <a href="#pricing">pricing</a>
+            <a href="#services">Services</a>
+            <a href="#">Contact</a>
+            <a id="review" href="#reviews">reviews</a>
+        </div>
+    </div>
+
+
 
     <div class="massive-div"></div>
 
-    <div class="navbar">
-        <a href="#services"> Services</a>
-        <a href="#pricing"> Pricing</a>
-        <a id="qoute" href="#quote" style="color: #14AE5C"> Request a Quote</a>
-        
-        <a href="#contact"> Contact Us</a>
-        <a href="#reviews"> Client Reviews</a>
-        <a href="https://wa.me/27712542404?text=Consultation%20Free" target="_blank">FREE Online Consultation</a>
 
-
-
-    </div>
 
     <div class="header" id="home">
-        <img id="mbusiseni" style="z-index: 1;" src="images/mbusi.png" alt="">
-        <h1 id="web">Mbusiseni Mbhele <br>Web</span> Design & <span> Marketing</span></h1>
-        <p><span id="Elevate">Elevate</span> your digital presence with stunning websites and strategic marketing campaigns!</p>
-        <button class="red" style="font-weight: bolder;">Help me get more clients</button>
-        <button class="snake-border" style="font-weight: bolder;">
-            I want a website first
-        </button>
+        <div class="header-content">
+            <img id="mbusiseni" src="images/mbusi.png" alt="">
+            <div class="text-content">
+                <h1 id="web">Mbusiseni Mbhele <br>Web</span> Design & <span> Marketing</span></h1>
+                <p><span id="Elevate" >Elevate</span> your digital presence with stunning websites and strategic marketing campaigns!</p>
+                <button class="red" style="font-weight: bolder;">Help me get more clients</button>
+                <button class="snake-border" style="font-weight: bolder;">I want a website first</button>
+            </div>
+        </div>
     </div>
-  
+    
     
     <!-- Moved "Select your package" heading above the table -->
  
@@ -649,6 +799,10 @@ document.body.classList.add('page-loaded');
         // You can customize this function to handle the selected service as needed
     }
 
+    function toggleMenu() {
+    var menuItems = document.getElementById("menuItems");
+    menuItems.classList.toggle("show");
+}
 
     </script>
 </body>
