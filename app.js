@@ -1,16 +1,12 @@
 require('dotenv').config();
 const express = require('express');
-
+const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
 const User = require('./models/User');  // Ensure your User model is correctly set up
-
-// const MongoStore = require('connect-mongo');
 
 const app = express();
 const port = process.env.PORT || 3008;
@@ -24,18 +20,18 @@ mongoose.connect(process.env.MONGODB_URI)
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-
-// Session Management Setup
-const store = MongoStore.create({ mongoUrl: process.env.MONGODB_URI });
-
-// Use session middleware with the new MongoStore instance
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: store,
-    cookie: { secure: process.env.NODE_ENV === 'production', httpOnly: true, sameSite: 'strict' }
+    cookie: { secure: false } // Set secure to false for local development
 }));
+
+// Log session data
+app.use((req, res, next) => {
+    console.log('Session data:', req.session);
+    next();
+});
 
 // Passport Authentication Setup
 app.use(passport.initialize());
@@ -65,11 +61,16 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (id, done) => {
     try {
         const user = await User.findById(id);
-        done(null, user);
+        if (user) {
+            done(null, user);
+        } else {
+            done(new Error('User not found'));
+        }
     } catch (error) {
         done(error, null);
     }
 });
+
 
 // Middleware to check if user is admin
 function isAdmin(req, res, next) {
@@ -82,12 +83,19 @@ function isAdmin(req, res, next) {
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index');
+    console.log('Authenticated:', req.isAuthenticated());
+    console.log('User:', req.user);
+    res.render('index', { user: req.user });
 });
 
 app.get('/login', (req, res) => {
+    console.log('Authenticated:', req.isAuthenticated());
+    console.log('User:', req.user);
     res.render('login', { messages: req.flash('error'), hasErrors: req.flash('error').length > 0 });
 });
+
+// Add similar logging to other routes
+
 
 app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
@@ -103,23 +111,17 @@ app.get('/register', (req, res) => {
 app.post('/register', async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log('Admin Key from request:', req.body.adminKey);
-        console.log('Environment Admin Key:', process.env.ADMIN_KEY);
-        const role = req.body.adminKey === process.env.ADMIN_KEY ? 'admin' : 'user';
-        console.log('Assigned role:', role);
-
         const newUser = new User({
             email: email.toLowerCase(),
             password: password, // Password will be hashed in pre-save middleware
-            role: role
+            role: 'user'
         });
-
         await newUser.save();
         req.login(newUser, (err) => {
             if (err) {
                 return res.status(500).send('Error logging in after registration');
             }
-            res.redirect(newUser.role === 'admin' ? '/admin-dashboard' : '/dashboard');
+            res.redirect('/dashboard');
         });
     } catch (error) {
         console.error('Error during registration:', error);
@@ -129,8 +131,8 @@ app.post('/register', async (req, res) => {
 
 app.get('/admin-dashboard', isAdmin, async (req, res) => {
     try {
-        const users = await User.find({});  // Fetch all users from the database
-        res.render('admin-dashboard', { user: req.user, users: users });  // Make sure to pass 'users' here
+        const users = await User.find({});
+        res.render('admin-dashboard', { user: req.user, users: users });
     } catch (error) {
         console.error('Failed to retrieve users from the database:', error);
         res.status(500).send("Error retrieving users from database.");
@@ -146,10 +148,8 @@ app.get('/dashboard', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-    req.logout((err) => {
-        if (err) return next(err);
-        res.redirect('/login');
-    });
+    req.logout();
+    res.redirect('/login');
 });
 
 // Start the server
