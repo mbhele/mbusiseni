@@ -371,6 +371,23 @@ button.red {
             background: linear-gradient(to right, #FFD700, #FF6347, #20B2AA, #FFD700);
             animation: snakeMove 5s linear infinite;
         }
+        .button {
+    display: inline-block;
+    padding: 7px 18px; /* Adjust padding to your preference */
+    background-color: #14ae5c; /* Green background */
+    color: #000000 !important; /* White text for better visibility */
+    text-decoration: none; /* Remove underline from link */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+    border: 1px solid white;
+    
+}
+
+.button:hover {
+    background-color: #12a250; /* Slightly darker shade of green for hover */
+    transform: translateY(-2px); /* Move up slightly on hover */
+     transform: translateY(-2px) rotate(10deg); /* Move up slightly on hover while maintaining rotation */
+}
 
         @keyframes snakeMove {
             0% {
@@ -561,10 +578,13 @@ button.red {
         </div>
         <div class="menu-items" id="menuItems">
             <a href="#home">Home</a>
+            <a href="/contact" class="button">Apply</a>
             <a href="#pricing">pricing</a>
             <a href="#services">Services</a>
-            <a href="#">Contact</a>
-            <a id="review" href="#reviews">reviews</a>
+            <a href="/login">Login</a>
+       
+
+          
         </div>
     </div>
 
@@ -753,7 +773,7 @@ button.red {
 
 document.body.classList.add('page-loaded');
 
-
+var button = document.querySelector('.select-button');
   const opacityInterval = setInterval(() => {
             const massiveDiv = document.querySelector('.massive-div');
             if (massiveDiv) {
@@ -795,9 +815,84 @@ document.body.classList.add('page-loaded');
         webElement.innerHTML = styledContent;
 
         function selectService(service) {
-        alert('Service selected: ' + service);
-        // You can customize this function to handle the selected service as needed
-    }
+    var whatsappNumber = '+27712542404';
+    var serviceName = '';
+    var serviceDetails = '';
+
+    // Determine the service name and details based on the selected service
+    switch(service) {
+        case 'basic':
+            serviceName = 'Basic Package';
+            serviceDetails = '✓ Small 3 page simple design website\n' +
+                            '✓ Functional website\n' +
+                            '✓ 3 pages\n' +
+                            '✓ 1 revision\n' +
+                            '✓ 7 days delivery\n' +
+                            'R 7,452';
+            break;
+        case 'free-one-page':
+            serviceName = 'Free One-Page Website';
+            serviceDetails = '✓ One-page website design\n' +
+                            '✓ Limited customization\n' +
+                            'FREE';
+            break;
+        case 'standard':
+            serviceName = 'Standard Package';
+            serviceDetails = '✓ Medium 6 page standard website\n' +
+                            '✓ Content upload\n' +
+                            '✓ 6 pages\n' +
+                            '✓ 2 revisions\n' +
+                            '✓ 1 day delivery\n' +
+                            'R 16,393';
+            break;
+        case 'premium':
+            serviceName = 'Premium Package';
+            serviceDetails = '✓ High-quality website + CMS\n' +
+                            '✓ 8 pages\n' +
+                            '✓ 3 revisions\n' +
+                            '✓ 1 day delivery\n' +
+                            'R 29,806';
+            break;
+        case 'seo':
+            serviceName = 'SEO Package';
+            serviceDetails = '✓ On-page and off-page optimization\n' +
+                            '✓ Keyword research\n' +
+                            '✓ SEO audit\n' +
+                            '✓ Monthly performance reports\n' +
+                            'Contact us for a quote';
+            break;
+        case 'facebook-management':
+            serviceName = 'Facebook Management';
+            serviceDetails = '✓ Social media strategy development\n' +
+                            '✓ Content creation and posting\n' +
+                            '✓ Engagement monitoring\n' +
+                            'Contact us for a quote';
+            break;
+        case 'facebook-ads':
+            serviceName = 'Facebook Ads';
+            serviceDetails = '✓ Ad campaign setup and management\n' +
+                            '✓ Target audience research\n' +
+                            '✓ Ad performance analytics\n' +
+                            'Contact us for a quote';
+            break;
+        default:
+             }
+
+    // Generate the WhatsApp message
+    var message = "Hello, I'm interested in the " + serviceName + " service.\n\n";
+    message += "Service Details:\n" + serviceDetails + "\n\n";
+    message += "Please provide more information.\n";
+
+    // Encode the message for use in a URL
+    var encodedMessage = encodeURIComponent(message);
+
+    // Generate the WhatsApp link with the number and message
+    var whatsappLink = 'https://wa.me/' + whatsappNumber + '?text=' + encodedMessage;
+
+    // Redirect to the WhatsApp link
+    window.location.href = whatsappLink;
+}
+
 
     function toggleMenu() {
     var menuItems = document.getElementById("menuItems");

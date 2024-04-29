@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Contact Us - Custom Theme</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: -50vh;
-    background-color: #06742e; /* Updated background color */
+    min-height: 100vh;
+    background-color: #e0e5ec;
 }
 
 .container {
-    width: 80%;
-    max-width: 400px;
-    background-color: #ffffff;
+    margin-top: 3rem;
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s, transform 0.5s; /* Smooth transitions for fading out and scaling */
 }
 
 .container h1 {
-    text-align: center;
-    color: #333;
+    color:#0e8a47; /* Using black for headings for better readability */
 }
 
 .form-group {
@@ -38,95 +39,210 @@
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    color: black; /* Black color for labels for contrast and readability */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea,
-select {
+.form-group input, 
+.form-group select, 
+.form-group textarea, 
+.form-group button[type="submit"] {
+    width: 100%; /* Full width to match the parent container */
+    padding: 10px; /* Uniform padding for all elements */
+    margin-bottom: 15px; /* Consistent spacing between form elements */
+    display: block; /* Ensure these elements are block level for full width */
+    border: 1px solid #0e8a47; /* Uniform border styling */
+    border-radius: 4px; /* Rounded corners for a softer look */
+    box-sizing: border-box; /* Includes padding and border in the element's total dimensions */
+    transition: all 0.3s; /* Smooth transition for focus effects */
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #14ae5c; /* Highlight color on focus */
+    box-shadow: 0 0 8px #14ae5c; /* Glow effect for focus */
+}
+
+.form-group button[type="submit"] {
+    background-color: #14ae5c; /* Primary green color for the submit button */
+    color: white; /* Text color for readability */
+    border: none; /* No border for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #0e8a47; /* A darker shade of green for hover effect */
+}
+
+/* Style adjustments specifically for checkbox and radio inputs */
+.form-group input[type="checkbox"], 
+.form-group input[type="radio"] {
+    margin-right: 10px; /* Space to the right for checkbox and radio */
+    width: auto; /* Revert width for checkbox and radio to default */
+    display: inline-block; /* Allow checkboxes and radios to be inline */
+}
+
+.nice-dropdown {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
+.nice-dropdown:focus {
+    border-color: #14ae5c;
+    outline: none;
+    box-shadow: 0 0 5px rgba(20, 174, 92, 0.5);
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
+@media screen and (max-width: 600px) {
 
+.container {
+
+    width: 60%;
+
+}
+}
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <form action="/submit" method="post">
+<div  class="container" id="formContainer">
+    <h1>Contact Us</h1>
+    <form id="contactForm" action="/submit-form" method="POST">
+    
+
             <div class="form-group">
-                <label for="companyName">Company Name:</label>
-                <input type="text" id="companyName" name="companyName">
-            </div>
-            <div class="form-group">
-                <label for="website">Website:</label>
-                <input type="text" id="website" name="website">
-            </div>
-            <div class="form-group">
-                <label for="logo">Logo:</label>
-                <select id="logo" name="logo">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="numClients">Number of Clients:</label>
-                <input type="number" id="numClients" name="numClients">
-            </div>
-            <div class="form-group">
-                <label for="websiteType">Website Type:</label>
-                <select id="websiteType" name="websiteType">
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="big">Big</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="industry">Industry:</label>
-                <input type="text" id="industry" name="industry" value="Plumbing" readonly>
-            </div>
-            <div class="form-group">
-                <label for="agent">Agent:</label>
-                <select id="agent" name="agent">
-                    <option value="single">Single</option>
-                    <option value="multiple">Multiple</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-                <label for="ads">Ads:</label>
-                <input type="checkbox" id="facebookAds" name="facebookAds">
-                <label for="facebookAds">Facebook Ads</label><br>
-                <input type="checkbox" id="onlinePaymentAds" name="onlinePaymentAds">
-                <label for="onlinePaymentAds">Online Payment Ads</label><br>
-                <input type="checkbox" id="whatsappAds" name="whatsappAds">
-                <label for="whatsappAds">WhatsApp Ads</label>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
+        <label for="companyName">Your Company Name:</label>
+        <input type="text" id="companyName" name="companyName" placeholder="e.g., Acme Corp">
     </div>
+    <div class="form-group">
+        <label for="website">Your Company Website URL:(Optional) </label>
+        <input type="text" id="website" name="website" placeholder="e.g., www.acmecorp.com">
+    </div>
+    <div class="form-group">
+        <label for="logo">Do you have a logo?</label>
+        <select id="logo" name="logo">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="numClients">How many clients do you currently have?</label>
+        <input type="number" id="numClients" name="numClients" placeholder="Number of clients">
+    </div>
+    <div class="form-group">
+        <label for="websiteType">Select the size of your desired website:</label>
+        <select id="websiteType" name="websiteType">
+            <option value="personal">Personal (Blogs, Portfolios)</option>
+            <option value="small">Small (Basic online presence)</option>
+            <option value="medium">Medium (E-commerce, interactive)</option>
+            <option value="large">Large (Enterprise level, high functionality)</option>
+            <option value="startup">Startup (Innovative, Scalable)</option>
+            <option value="corporate">Corporate (Professional services, Corporate branding)</option>
+            <option value="educational">Educational (Schools, Online Courses)</option>
+            <option value="non_profit">Non-Profit (Charities, Community resources)</option>
+            <option value="entertainment">Entertainment (Movies, Music, Gaming)</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="industry">Your Industry:</label>
+        <select id="industry" name="industry">
+            <option value="plumbing">Plumbing</option>
+            <option value="technology">Technology</option>
+            <option value="finance">Finance</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="education">Education</option>
+            <option value="manufacturing">Manufacturing</option>
+            <option value="retail">Retail</option>
+            <option value="food_service">Food Service</option>
+            <option value="real_estate">Real Estate</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="non_profit">Non-Profit</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="agent">Type of customer service agent:</label>
+        <select id="agent" name="agent">
+            <option value="single">Single Agent</option>
+            <option value="multiple">Multiple Agents</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="phone">Your Contact Phone Number:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+27 (071) 254-2404" required>
+
+    </div>
+    <div class="form-group">
+        <label for="adType">Select the type of ads you're interested in:</label>
+        <select id="adType" name="adType" class="nice-dropdown">
+            <optgroup label="Facebook Ads">
+                <option value="facebook_brand_awareness">Brand Awareness</option>
+                <option value="facebook_lead_generation">Lead Generation</option>
+                <option value="facebook_traffic">Traffic</option>
+                <option value="facebook_engagement">Engagement</option>
+                <option value="facebook_conversion">Conversion</option>
+                <option value="facebook_catalog_sales">Catalog Sales</option>
+            </optgroup>
+            <optgroup label="Google Ads">
+                <option value="google_search">Search Ads</option>
+                <option value="google_display">Display Ads</option>
+                <option value="google_video">Video Ads</option>
+                <option value="google_shopping">Shopping Ads</option>
+                <option value="google_app">App Promotion</option>
+                <option value="google_local">Local Ads</option>
+            </optgroup>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit">Submit</button>
+    </div>
+</div>
+<div id="successMessage" style="display: none; text-align: center;">
+    <h2>Your form was submitted successfully!</h2>
+</div>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+    // Ensure you have a form with the id 'contactForm'
+    var form = document.getElementById('contactForm');
+
+    if (form) {
+        form.addEventListener('submit', function(event) {
+          
+            var formContainer = document.getElementById('formContainer');
+            var successMessage = document.getElementById('successMessage');
+
+            // Check if both formContainer and successMessage exist
+            if (formContainer && successMessage) {
+                // Animate the form disappearing
+                formContainer.style.opacity = '0';
+                formContainer.style.transform = 'scale(0.9)'; // Slightly shrink for effect
+
+                setTimeout(function() {
+                    formContainer.style.display = 'none'; // Hide the form container
+                    successMessage.style.display = 'block'; // Show the success message
+                    successMessage.style.opacity = '0';
+                    successMessage.style.transition = 'opacity 0.5s';
+                    successMessage.style.opacity = '1'; // Fade in the success message
+                }, 500); // This duration should match the CSS transition time
+            }
+        });
+    }
+});
+
+    </script>
+    
+
 </body>
 </html>

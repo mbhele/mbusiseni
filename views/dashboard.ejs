@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Make sure you have this CSS file -->
+
+<style>
+    body{
+        background-color: #4caf50;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Welcome to Our Website</h1>
+    <p>We want to help you succeed.</p>
+    <% if (user) { %>
+        <h2>Welcome, <%= user.email %></h2>
+    <% } else { %>
+        <h2>Welcome, Guest</h2>
+        <p>Please <a href="/login">login</a> to view your dashboard.</p>
+    <% } %>
+</body>
+</html>
