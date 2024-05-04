@@ -103,11 +103,7 @@
         }
 
         
-        .pricing {
-            text-align: center;
-            padding: 40px;
-            background-color: #000000;
-        }
+        
 
         .quote {
             text-align: center;
@@ -181,6 +177,18 @@
            
         }
 
+        #free{
+            background-color: #e70909;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        }
         .navbar a {
             color: white;
             text-decoration: none;
@@ -235,36 +243,14 @@ span{
 }
 
 
-.package-table {
-    width: 50%;
-    border-collapse: collapse;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 auto; /* Add this line to center the table */
-    margin-top: 20px;
-}
-.package-table th, .package-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
 
-.package-table th {
-    background-color: #4CAF50;
-}
 
-.package-table td ul {
-    margin: 0;
-    padding: 0;
-}
-
-.package-table td li {
-    list-style-type: none;
-    margin-bottom: 5px;
-}
-
-.package-table td:last-child {
-    border-radius: 0 10px 10px 0;
+#logo{
+    position: absolute;
+    top: -30px;
+    left:20px;
+    height: 22vh;
+    border-radius: 50px;
 }
 
 .select-button {
@@ -423,7 +409,77 @@ button.red {
     }
 }
 
+.services-section {
+    background-color: #000000; /* Main theme color - black */
+    color: #ffffff; /* Text color - white */
+    padding: 40px 20px;
+    text-align: center;
+}
 
+.section-title {
+    color: #14AE5C; /* Main accent color - green */
+    margin-bottom: 20px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-card {
+    background-color: #14AE5C; /* Darker shade for card */
+    border: 1px solid #ffffff; /* Green border */
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(50% - 20px); /* Responsive width with spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.pricing-card {
+    background-color: #333; /* Dark background for the card */
+    color: #fff; /* White text color */
+    border: 1px solid #14AE5C; /* Green border */
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(18% - 20px); /* Three cards per row with spacing */
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px); /* Hover effect to lift the card */
+}
+
+.pricing-card h3 {
+    color: #14AE5C; /* Main accent color - green */
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-card .price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 /* Media queries for responsiveness */
         @media only screen and (max-width: 600px) {
             .service-card,
@@ -431,6 +487,20 @@ button.red {
             .client-logo {
                 width: 100%;
             }
+            .pricing-card {
+        width: 100%; /* Full width on smaller screens */
+    }
+            .service-card {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    #logo {
+    position: absolute;
+    top: -30px;
+    left: 60px;
+    height: 22vh;
+    border-radius: 50px;
+}
         }
 
         /* Keyframe Animation */
@@ -455,6 +525,28 @@ button.red {
     overflow: hidden;
     margin: 0 auto; /* Add this line to center the table */
     margin-top: 20px;
+}
+
+#free {
+    background-color: #e70909;
+    color: white;
+    border: none;
+    padding: 6.8px 7px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: .6em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.red{
+    padding: 15px 30px !important;
+    font-size: 1.2em !important;
+    padding: 10px 25px !important;
+        font-size: 1.1em !important;
+        width: 83%;
 }
         }
 
@@ -571,6 +663,10 @@ button.red {
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="navbar">
+        <div class="logo-container">
+            
+            <img id="logo" src="images/logo.svg" alt="logo">
+        </div>
         <div class="hamburger-menu" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
@@ -578,10 +674,12 @@ button.red {
         </div>
         <div class="menu-items" id="menuItems">
             <a href="#home">Home</a>
-            <a href="/contact" class="button">Apply</a>
+            <a href="/contact" class="button" style="color: white !important;">Apply</a>
             <a href="#pricing">pricing</a>
             <a href="#services">Services</a>
-            <a href="/login">Login</a>
+            <a href="" id="free">Request a meeting</a>
+              <!-- <a href="Business-hire">Business to hire</a> -->
+            <!-- <a href="/login">Register Your company</a> -->
        
 
           
@@ -600,7 +698,7 @@ button.red {
             <div class="text-content">
                 <h1 id="web">Mbusiseni Mbhele <br>Web</span> Design & <span> Marketing</span></h1>
                 <p><span id="Elevate" >Elevate</span> your digital presence with stunning websites and strategic marketing campaigns!</p>
-                <button class="red" style="font-weight: bolder;">Help me get more clients</button>
+                <button class="red" style="font-weight: bolder;">I need customers</button>
                 <button class="snake-border" style="font-weight: bolder;">I want a website first</button>
             </div>
         </div>
@@ -633,44 +731,74 @@ button.red {
             <!-- Add more company cards as needed -->
         </div>
     </div>
+
+    <div class="services-section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <h3>Web Design</h3>
+                <p>Custom website designs that are visually appealing and user-friendly.</p>
+            </div>
+            <div class="service-card">
+                <h3>Digital Marketing</h3>
+                <p>Comprehensive digital marketing strategies to boost your online presence.</p>
+            </div>
+            <div class="service-card">
+                <h3>SEO Optimization</h3>
+                <p>Enhance your website's visibility in search engine results with optimized SEO practices.</p>
+            </div>
+            <div class="service-card">
+                <h3>Content Creation</h3>
+                <p>Engaging and original content to captivate your audience.</p>
+            </div>
+        </div>
+    </div>
     
     <div class="pricing" id="pricing">
-        <h2>Our Pricing</h2>
-        <p>We offer competitive prices for our high-quality services. Contact us for detailed quotes.</p>
-    </div>
-    <table class="package-table">
-        <!-- ... (existing table structure) ... -->
-        <tbody>
-            <tr>
-                <!-- ... (existing row content) ... -->
-                <td>Basic</td>
-                <td>
-                    <ul>
-                        <li>✓ Small 3 page simple design website</li>
-                        <li>✓ Functional website</li>
-                        <li>✓ 3 pages</li>
-                        <li>✓ 1 revision</li>
-                        <li>✓ 7 days delivery</li>
-                    </ul>
-                </td>
-                <td>R 7,452</td>
-                <td><button class="select-button" onclick="selectService('Basic')">Select</button></td>
-            </tr>
-            <tr>
-                <td>Free One-Page Website</td>
-                <td>
-                    <ul>
-                        <li>✓ One-page website design</li>
-                        <li>✓ Limited customization</li>
-                    </ul>
-                </td>
-                <td style="color: red; font-weight: bold;">FREE</td>
-                <td><button class="select-button" onclick="selectService('Free One-Page')">Select</button></td>
-            </tr>
-            <tr>
-                <!-- ... (existing row content) ... -->
-                <td>Standard</td>
-                <td>
+        <h2 style="text-align: center;">Our Pricing</h2>
+        <p  style="text-align: center;">We offer competitive prices for our high-quality services. Contact us for detailed quotes.</p>
+        <div class="pricing-cards">
+            <!-- Basic Package Card -->
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <ul>
+                    <li>✓ Small 3 page simple design website</li>
+                    <li>✓ Functional website</li>
+                    <li>✓ 3 pages</li>
+                    <li>✓ 1 revision</li>
+                    <li>✓ 7 days delivery</li>
+                </ul>
+                <p class="price">R 7,452</p>
+                <button class="select-button" onclick="selectService('Basic')">Select</button>
+            </div>
+    
+            <!-- Free One-Page Website Card -->
+            <div class="pricing-card">
+                <h3>Free One-Page Website</h3>
+                <ul>
+                    <li>✓ One-page website design</li>
+                    <li>✓ Limited customization</li>
+                </ul>
+                <p class="price" style="color: red; font-weight: bold;">FREE</p>
+                <button class="select-button" onclick="selectService('Free One-Page')">Select</button>
+            </div>
+    
+            <!-- Standard Package Card -->
+            <div class="pricing-card">
+                <h3>Standard</h3>
+                <ul>
+                    <li>✓ Medium 6 page standard website</li>
+                    <li>✓ Content upload</li>
+                    <li>✓ 6 pages</li>
+                    <li>✓ 2 revisions</li>
+                    <li>✓ 1 day delivery</li>
+                </ul>
+                <p class="price">R 16,393</p>
+                <button class="select-button" onclick="selectService('Standard')">Select</button>
+            </div>
+                <!-- Standard Package Card -->
+                <div class="pricing-card">
+                    <h3>Advance</h3>
                     <ul>
                         <li>✓ Medium 6 page standard website</li>
                         <li>✓ Content upload</li>
@@ -678,64 +806,16 @@ button.red {
                         <li>✓ 2 revisions</li>
                         <li>✓ 1 day delivery</li>
                     </ul>
-                </td>
-                <td>R 16,393</td>
-                <td><button class="select-button" onclick="selectService('Standard')">Select</button></td>
-            </tr>
-            <tr>
-                <!-- ... (existing row content) ... -->
-                <td>Premium</td>
-                <td>
-                    <ul>
-                        <li>✓ High-quality website + CMS</li>
-                        <li>✓ 8 pages</li>
-                        <li>✓ 3 revisions</li>
-                        <li>✓ 1 day delivery</li>
-                    </ul>
-                </td>
-                <td>R 29,806</td>
-                <td><button class="select-button" onclick="selectService('Premium')">Select</button></td>
-            </tr>
-            <tr>
-                <td>SEO</td>
-                <td>
-                    <ul>
-                        <li>✓ On-page and off-page optimization</li>
-                        <li>✓ Keyword research</li>
-                        <li>✓ SEO audit</li>
-                        <li>✓ Monthly performance reports</li>
-                    </ul>
-                </td>
-                <td>Contact us for a quote</td>
-                <td><button class="select-button" onclick="selectService('SEO')">Select</button></td>
-            </tr>
-            <tr>
-                <td>Facebook Management</td>
-                <td>
-                    <ul>
-                        <li>✓ Social media strategy development</li>
-                        <li>✓ Content creation and posting</li>
-                        <li>✓ Engagement monitoring</li>
-                    </ul>
-                </td>
-                <td>Contact us for a quote</td>
-                <td><button class="select-button" onclick="selectService('Facebook Management')">Select</button></td>
-            </tr>
-            <tr>
-                <td>Facebook Ads</td>
-                <td>
-                    <ul>
-                        <li>✓ Ad campaign setup and management</li>
-                        <li>✓ Target audience research</li>
-                        <li>✓ Ad performance analytics</li>
-                    </ul>
-                </td>
-                <td>Contact us for a quote</td>
-                <td><button class="select-button" onclick="selectService('Facebook Ads')">Select</button></td>
-            </tr>
-        </tbody>
-    </table>
+                    <p class="price">R 16,393</p>
+                    <button class="select-button" onclick="selectService('Standard')">Select</button>
+                </div>
     
+            <!-- More cards for other packages -->
+        </div>
+    </div>
+    
+    
+ 
 
   
 

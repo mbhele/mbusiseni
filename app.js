@@ -146,7 +146,10 @@ app.get('/dashboard', (req, res) => {
         res.render('dashboard', { user: req.user });
     }
 });
-
+app.get('/contact', (req, res) => {
+   
+    res.render('contact');
+});
 app.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/login');
