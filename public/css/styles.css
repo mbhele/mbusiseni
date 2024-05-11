@@ -635,8 +635,8 @@ margin-bottom: 20px;
 .navbar a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
-    font-size: .6em;
+    margin: 0 px;
+    font-size: .9em;
     cursor: pointer;
     position: relative;
     transition: color 0.3s ease;
@@ -772,17 +772,19 @@ font-weight: 800;
 #text-1 {
 left: 50%;  /* Start from the center, moving left */
 transform: translateX(-50%);
-top:1px;
+top: 30px;
 font-size: 3rem;
+
 
 }
 
 #text-2 {
 right: 50%;  /* Start from the center, moving right */
 transform: translateX(50%);
-top: 50px;
-font-size: 3rem;
+
 color: #4caf50;
+top: 65px;
+font-size: 3rem;
 }
 
 
