@@ -200,7 +200,7 @@ overflow: hidden; /* Prevent scrollbars during animation */
         left: 50%;   /* Center horizontally */
         top: 35%;    /* Center vertically */
         transform: translate(-50%, -50%); /* Adjust the exact center of the element to be the center of the screen */
-        height: 150vh;  /* Maintain the height as 110% of the viewport height */
+        height: 130vh;  /* Maintain the height as 110% of the viewport height */
         z-index: -1;
     }
 #right-left-text {
@@ -555,6 +555,7 @@ margin-bottom: 20px;
 #mbusiseni {
     top: 39%;  /* Adjust vertical positioning on smaller screens if needed */
     z-index: -1;
+    height: 120vh;
 }
 #text-2 {
     right: 50%;  /* Start from the center, moving right */
@@ -730,6 +731,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 font-size: 24px; /* Larger text */
+top: 4rem;
 }
 
 #text-1, #text-2 {
