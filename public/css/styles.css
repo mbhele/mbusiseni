@@ -521,7 +521,7 @@ margin-bottom: 20px;
 #logo {
     left: auto;  /* Override left alignment */
     right: 5px;  /* Align logo to the right side with a small padding */
-    top: 5px;  /* Move the logo up slightly by reducing top padding */
+    top: -20px;  /* Move the logo up slightly by reducing top padding */
     height: 15vh;  /* Adjust logo size for smaller devices */
 }
 #text-1 {
