@@ -686,11 +686,11 @@ margin: 0 10px;
 }
 
 #mbusiseni {
-height: 110vh;
+    height: 180vh;
 z-index: -1;
 position: absolute;
-left: -10%;
-top: 2rem;
+left: -45%;
+top: -12rem;
 }
 #right-left-text {
 position: relative;
@@ -736,15 +736,23 @@ width: 83%;
 }
 }
 
-
+@media only screen and (max-width: 375px) {
+    #mbusiseni {
+        height: 180vh;
+        z-index: -1;
+        position: absolute;
+        left: -60%;
+        top: -12rem;
+        }
+}
 
 @media only screen and (max-width: 320px) {
     #mbusiseni {
-        height: 110vh;
+        height: 180vh;
         z-index: -1;
         position: absolute;
-        left: -30%;
-        top: 2rem;
+        left: -80%;
+        top: -12rem;
         }
 
 }
