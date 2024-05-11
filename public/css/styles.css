@@ -506,48 +506,7 @@ margin-bottom: 20px;
 }
 
 
-/* Media queries for responsiveness */
-    @media only screen and (max-width: 600px) {
-        .service-card,
-        .review-card,
-        .client-logo {
-            width: 100%;
-        }
-        .pricing-card {
-    width: 100%; /* Full width on smaller screens */
-}
-        .service-card {
-    width: 100%; /* Full width on smaller screens */
-}
 
-#logo {
-position: absolute;
-top: -30px;
-left: 50px;
-height: 22vh;
-border-radius: 50px;
-}
-    }
-
-    /* Keyframe Animation */
-    @keyframes zoomIn {
-        from {
-            transform: scale(0);
-        }
-        to {
-            transform: scale(1);
-        }
-
-
-
-        
-    }
-
-
-    /* ----------
-    
-    
-    */
 
     
 
@@ -582,7 +541,7 @@ border-radius: 50px;
 #text-2 {
     right: 50%;  /* Start from the center, moving right */
     transform: translateX(50%);
-    top: 150px;
+    top: 250px;
     font-size: 5rem;
     color: #4caf50;
 }
@@ -660,8 +619,49 @@ margin-bottom: 5px;
 border-radius: 0 10px 10px 0;
 }
 }
+/* Media queries for responsiveness */
+@media only screen and (max-width: 600px) {
+    .service-card,
+    .review-card,
+    .client-logo {
+        width: 100%;
+    }
+    .pricing-card {
+width: 100%; /* Full width on smaller screens */
+}
+    .service-card {
+width: 100%; /* Full width on smaller screens */
+}
 
-@media only screen and (max-width: 325px) {
+#logo {
+position: absolute;
+top: -30px;
+left: 50px;
+height: 22vh;
+border-radius: 50px;
+}
+}
+
+/* Keyframe Animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+
+
+
+    
+}
+
+
+/* ----------
+
+
+*/
+@media only screen and (max-width: 425px) {
     .package-table {
 width: 2%;
 border-collapse: collapse;
