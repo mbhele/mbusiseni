@@ -4,169 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Ensure you have a CSS file at public/css/style.css -->
-<style>
- @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white; /* White text */
+            background-color: black; /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Vertically align content */
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #000;
-    margin: 0;
-    padding: 0;
-}
+        h1 {
+            margin-bottom: 20px;
+            color: #0e8a47; /* Green color for heading */
+        }
 
-h1 {
-    text-align: center;
-    margin-top: 50px;
-}
+        form {
+            background: #333; /* Dark grey background for the form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Stronger shadow for a 3D effect */
+            width: 300px; /* Fixed width for better control */
+        }
+        .home-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #0e8a47; /* Adjust color to fit the theme */
+        }
+        label {
+            color: white; /* White labels */
+        }
 
-form {
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #2db67c; /* Background color set to #2db67c */
-    animation: fadeIn 0.5s ease-out;
-}
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Lighter border */
+            border-radius: 4px;
+            background-color: #222; /* Darker input backgrounds */
+            color: white; /* White input text */
+        }
 
-label {
-    display: block;
-    margin-bottom: 10px;
-}
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #e70909; /* Red border on focus */
+        }
 
-input[type="email"],
-input[type="password"],
-button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #fff; /* Input and button background color set to white */
-}
+        button {
+            background-color: #0e8a47; /* Red background for the button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
 
-button {
-    background-color: #2db67c;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        button:hover {
+            background-color: #0e8a47; /* Green background on hover */
+        }
 
-button:hover {
-    background-color: #1a845a;
-}
+        a {
+            color: #e70909; /* Red link */
+            text-decoration: none;
+        }
 
-.alert {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
+        a:hover {
+            color: #fff; /* White on hover */
+            text-decoration: underline;
+        }
 
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-.link {
-    text-align: center;
-    margin-top: 20px;
-    color: #000;
-}
-
-.link a {
-    color: #000;
-    text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-    form {
-        width: 80%; /* Make form width 80% of the viewport width */
-    }
-}
-</style>
-
+        @media (max-width: 600px) {
+            form {
+                width: 90%; /* Responsive width on smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
+    <a href="/" class="home-link">&#x2190; Home</a>
     <h1>Login</h1>
-    <% if(hasErrors) { %>
-        <% messages.forEach(function(message) { %>
-            <div class="alert alert-danger"><%= message %></div>
-        <% }); %>
-    <% } %>
-    
-    <form action="/login" method="post">
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button style="background-color: #000;" type="submit">Login</button>
-        <div id="password-notification" class="notification"></div>
-<div id="email-notification" class="notification"></div>
-    </form>
-    <div class="link">Don't have an account? <a href="https://api.whatsapp.com/send/?phone=%2B27712542404&text=I+want+to+login+so+that+I+can+see+your+resources&type=phone_number&app_absent=0">Send a message to WhatsApp</a></div>
+    <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form');
-        const passwordInput = document.getElementById('password');
-        const emailInput = document.getElementById('email');
-        const passwordNotification = document.getElementById('password-notification');
-        const emailNotification = document.getElementById('email-notification');
-    
-        form.addEventListener('submit', function(event) {
-            let isValid = true;
-    
-            // Check password strength
-            if (passwordInput.value.length < 6) {
-                passwordNotification.textContent = 'Password is too weak. Please use at least 6 characters.';
-                passwordNotification.style.display = 'block';
-                isValid = false;
-            } else {
-                passwordNotification.style.display = 'none';
-            }
-    
-            // Check email format
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(emailInput.value)) {
-                emailNotification.textContent = 'Invalid email format. Please enter a valid email address.';
-                emailNotification.style.display = 'block';
-                isValid = false;
-            } else {
-                emailNotification.style.display = 'none';
-            }
-    
-            if (!isValid) {
-                event.preventDefault(); // Prevent form submission
-            }
-        });
-    
-        // Optional: Hide notifications when inputs are focused
-        passwordInput.addEventListener('focus', function() {
-            passwordNotification.style.display = 'none';
-        });
-    
-        emailInput.addEventListener('focus', function() {
-            emailNotification.style.display = 'none';
-        });
-    });
-</script>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="/register">Register here</a></p>
 </body>
 </html>

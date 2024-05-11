@@ -2,30 +2,135 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Ensure you have a CSS file at public/css/style.css -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: white; /* White text */
+            background-color: black; /* Black background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Vertically align content */
+        }
+
+        h1 {
+            color: #0e8a47; /* Green color for heading */
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #333; /* Dark grey background for the form */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Stronger shadow for a 3D effect */
+            width: 300px; /* Fixed width for better control */
+        }
+
+        .home-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #0e8a47; /* Adjust color to fit the theme */
+        }
+
+        label {
+            color: white; /* Consistent text color */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Lighter border */
+            border-radius: 4px;
+            background-color: #222; /* Darker input backgrounds */
+            color: rgb(139, 74, 74); /* White input text */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #0e8a47; /* Green border on focus */
+        }
+
+        button {
+            background-color: #0e8a47; /* Green background for the button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e70909; /* Red background on hover */
+        }
+
+        p {
+            color: #999; /* Lighter text for less important elements */
+        }
+
+        a {
+            color: #0e8a47; /* Green link */
+            text-decoration: none; /* No underline */
+        }
+
+        a:hover {
+            color: #e70909; /* Red on hover */
+            text-decoration: underline; /* Underline on hover for emphasis */
+        }
+
+        .password-strength {
+            color: #e70909; /* Red color for warnings */
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                width: 90%; /* Responsive width on smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
-
-    
+    <a href="/" class="home-link">&#x2190; Home</a>
     <h1>Register</h1>
     <form action="/register" method="post">
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <!-- Include admin key input field -->
-        <div>
-            <label for="adminKey">Admin Key (optional):</label>
-            <input type="text" id="adminKey" name="adminKey">
-        </div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required oninput="checkPasswordStrength()">
+        <div id="passwordStrength" class="password-strength"></div><br>
         <button type="submit">Register</button>
     </form>
-    
+    <p>Already have an account? <a href="/login">Login here</a></p>
+
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const strengthIndicator = document.getElementById('passwordStrength');
+            if (password.length < 6) {
+                strengthIndicator.textContent = "Password is too weak";
+                strengthIndicator.style.color = '#e70909';
+            } else if (password.length < 10) {
+                strengthIndicator.textContent = "Password is moderate";
+                strengthIndicator.style.color = '#e7b809';
+            } else {
+                strengthIndicator.textContent = "Password is strong";
+                strengthIndicator.style.color = '#09e76a';
+            }
+        }
+    </script>
 </body>
 </html>

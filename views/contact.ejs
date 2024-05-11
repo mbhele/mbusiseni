@@ -4,113 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Custom Theme</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #e0e5ec;
-}
-
-.container {
-    margin-top: 3rem;
-    width: 90%;
-    max-width: 600px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-    opacity: 1; /* Start fully visible */
-    transition: opacity 0.5s, transform 0.5s; /* Smooth transitions for fading out and scaling */
-}
-
-.container h1 {
-    color:#0e8a47; /* Using black for headings for better readability */
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-    color: black; /* Black color for labels for contrast and readability */
-}
-
-.form-group input, 
-.form-group select, 
-.form-group textarea, 
-.form-group button[type="submit"] {
-    width: 100%; /* Full width to match the parent container */
-    padding: 10px; /* Uniform padding for all elements */
-    margin-bottom: 15px; /* Consistent spacing between form elements */
-    display: block; /* Ensure these elements are block level for full width */
-    border: 1px solid #0e8a47; /* Uniform border styling */
-    border-radius: 4px; /* Rounded corners for a softer look */
-    box-sizing: border-box; /* Includes padding and border in the element's total dimensions */
-    transition: all 0.3s; /* Smooth transition for focus effects */
-}
-
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    border-color: #14ae5c; /* Highlight color on focus */
-    box-shadow: 0 0 8px #14ae5c; /* Glow effect for focus */
-}
-
-.form-group button[type="submit"] {
-    background-color: #14ae5c; /* Primary green color for the submit button */
-    color: white; /* Text color for readability */
-    border: none; /* No border for the button */
-    cursor: pointer; /* Pointer cursor on hover */
-}
-
-.form-group button[type="submit"]:hover {
-    background-color: #0e8a47; /* A darker shade of green for hover effect */
-}
-
-/* Style adjustments specifically for checkbox and radio inputs */
-.form-group input[type="checkbox"], 
-.form-group input[type="radio"] {
-    margin-right: 10px; /* Space to the right for checkbox and radio */
-    width: auto; /* Revert width for checkbox and radio to default */
-    display: inline-block; /* Allow checkboxes and radios to be inline */
-}
-
-.nice-dropdown {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
-    color: #333;
-    font-size: 16px;
-    margin-bottom: 15px;
-}
-
-.nice-dropdown:focus {
-    border-color: #14ae5c;
-    outline: none;
-    box-shadow: 0 0 5px rgba(20, 174, 92, 0.5);
-}
-
-@media screen and (max-width: 600px) {
-
-.container {
-
-    width: 60%;
-
-}
-}
-    </style>
+    <link rel="stylesheet" href="/css/contact.css">
 </head>
 <body>
+    <%- include('layouts/layout') %>
+    <a href="/" class="home-link">&#x2190; Home</a>
 <div  class="container" id="formContainer">
     <h1>Contact Us</h1>
     <form id="contactForm" action="/submit-form" method="POST">
@@ -208,39 +106,51 @@ label {
         <button type="submit">Submit</button>
     </div>
 </div>
-<div id="successMessage" style="display: none; text-align: center;">
-    <h2>Your form was submitted successfully!</h2>
+<div id="successPopup" class="popup" style="display: none;">
+    <p>Thanks for submitting the form!</p>
 </div>
 
 <script>
- document.addEventListener("DOMContentLoaded", function() {
-    // Ensure you have a form with the id 'contactForm'
-    var form = document.getElementById('contactForm');
-
-    if (form) {
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById('contactForm');
+        const successPopup = document.getElementById('successPopup'); // Get the popup element
+    
         form.addEventListener('submit', function(event) {
-          
-            var formContainer = document.getElementById('formContainer');
-            var successMessage = document.getElementById('successMessage');
-
-            // Check if both formContainer and successMessage exist
-            if (formContainer && successMessage) {
-                // Animate the form disappearing
-                formContainer.style.opacity = '0';
-                formContainer.style.transform = 'scale(0.9)'; // Slightly shrink for effect
-
-                setTimeout(function() {
-                    formContainer.style.display = 'none'; // Hide the form container
-                    successMessage.style.display = 'block'; // Show the success message
-                    successMessage.style.opacity = '0';
-                    successMessage.style.transition = 'opacity 0.5s';
-                    successMessage.style.opacity = '1'; // Fade in the success message
-                }, 500); // This duration should match the CSS transition time
-            }
+            event.preventDefault(); // Prevent the normal form submission
+            const formData = new FormData(form);
+    
+            fetch('/submit-form', {
+                method: 'POST',
+                body: formData // sending as FormData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message); // Log the success message from the server
+                displayPopup(); // Show the popup
+                form.reset(); // Reset the form fields after successful submission
+            })
+            .catch(error => {
+                console.error('Submission failed', error);
+            });
         });
-    }
-});
-
+    
+        function displayPopup() {
+            successPopup.style.display = 'block'; // Make the popup visible
+            successPopup.style.position = 'fixed';
+            successPopup.style.top = '50%';
+            successPopup.style.left = '50%';
+            successPopup.style.transform = 'translate(-50%, -50%)';
+            successPopup.style.backgroundColor = '#0a572e';
+            successPopup.style.color = 'black';
+            successPopup.style.padding = '20px';
+            successPopup.style.borderRadius = '10px';
+            successPopup.style.border = '1px solid black';
+    
+            setTimeout(() => {
+                successPopup.style.display = 'none'; // Hide the popup after 2 seconds
+            }, 2000);
+        }
+    });
     </script>
     
 

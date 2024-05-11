@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/css/Welcome.css"> <!-- Make sure your CSS file path is correct -->
+</head>
+<body>
+    <%- include('layouts/layout') %> <!-- Assuming you have a common layout file -->
+    <div class="welcome-container">
+        <h1>Welcome to Our Service, <%= user.username %>!</h1>
+        <p>We are thrilled to have you with us.</p>
+        
+        <!-- Newsletter Subscription Section -->
+        <section>
+            <p>To keep you updated with the latest news in your niche and to share the best content, please subscribe to our newsletter.</p>
+            <form action="/subscribe-newsletter" method="post" class="newsletter-form">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Dashboard Link -->
+        <a href="/dashboard" class="dashboard-link">Go to your dashboard</a>
+
+        <!-- Testimonials Section -->
+        <!-- <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <p class="testimonial">
+                "Using this service has transformed our business. Highly recommended!"
+                <br>— Jane Doe, Tech Innovations
+            </p>
+            <p class="testimonial">
+                "A fantastic resource for staying ahead in our industry!"
+                <br>— John Smith, Startup Guru
+            </p>
+        </section> -->
+
+        <!-- Upcoming Events Section -->
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <!-- <ul>
+                <li><strong>Webinar on Industry Trends:</strong> June 15th, 2021</li>
+                <li><strong>Annual Conference:</strong> September 20th, 2021</li>
+            </ul> -->
+        </section>
+    </div>
+</body>
+</html>

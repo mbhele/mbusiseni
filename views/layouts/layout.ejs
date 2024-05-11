@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cookie-consent-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.28/ua-parser.min.js"></script>
+</head>
+<body>
+    
+<!-- Cookie Consent Banner -->
+<div id="cookieConsentContainer" class="cookie-consent-container" style="display: none;">
+    <p>This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.</p>
+    <button id="acceptCookies">Accept All</button>
+    <button id="declineCookies">Decline All</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var parser = new UAParser();
+    var result = parser.getResult();
+
+    console.log("Document loaded at:", new Date()); // Logs the time when the document is fully loaded
+
+    if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookieConsentContainer').style.display = 'block';
+    } else {
+        console.log("Cookie consent status:", localStorage.getItem('cookiesAccepted'));
+    }
+
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+
+    acceptBtn.addEventListener('click', async function() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookieConsentContainer').style.display = 'none';
+        alert("Thank you for accepting cookies.");
+        console.log("Cookies accepted by user");
+        await sendDataToServer(result); // Call sendDataToServer and pass the UAParser results
+    });
+
+    declineBtn.addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'false');
+        document.getElementById('cookieConsentContainer').style.display = 'none';
+        alert("You have declined cookies.");
+        console.log("Cookies declined by user");
+    });
+});
+
+async function sendDataToServer(result) {
+    const data = {
+        deviceInfo: { model: result.device.model, type: result.device.type, vendor: result.device.vendor },
+        osInfo: { name: result.os.name, version: result.os.version },
+        browserInfo: { name: result.browser.name, version: result.browser.version },
+        pageVisited: window.location.pathname,
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform,
+        screenResolution: `${screen.width}x${screen.height}`,
+        colorDepth: screen.colorDepth,
+        referralURL: document.referrer,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        networkSpeed: navigator.connection ? navigator.connection.downlink : undefined,
+        networkType: navigator.connection ? navigator.connection.effectiveType : undefined
+    };
+
+    
+    try {
+        const response = await fetch('/api/device-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json' // Ensure the server knows that the client expects a JSON response
+            },
+            credentials: 'include', // This is important for including cookies/sessions
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`); // Handle non-2xx responses
+        }
+
+        const responseJson = await response.json();
+        console.log("Data sent to server", responseJson);
+    } catch (error) {
+        console.error("Failed to send data to server:", error.message);
+    }
+}
+</script>
+</body>
+</html>

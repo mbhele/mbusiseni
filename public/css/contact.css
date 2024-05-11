@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0e5ec;
+}
+
+.container {
+    margin-top: 3rem;
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s, transform 0.5s; /* Smooth transitions for fading out and scaling */
+}
+
+.container h1 {
+    color:#0e8a47; /* Using black for headings for better readability */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: black; /* Black color for labels for contrast and readability */
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea, 
+.form-group button[type="submit"] {
+    width: 100%; /* Full width to match the parent container */
+    padding: 10px; /* Uniform padding for all elements */
+    margin-bottom: 15px; /* Consistent spacing between form elements */
+    display: block; /* Ensure these elements are block level for full width */
+    border: 1px solid #0e8a47; /* Uniform border styling */
+    border-radius: 4px; /* Rounded corners for a softer look */
+    box-sizing: border-box; /* Includes padding and border in the element's total dimensions */
+    transition: all 0.3s; /* Smooth transition for focus effects */
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    padding: 20px;
+    background-color: #0a572e;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: opacity 0.5s, visibility 0.5s, transform 0.5s;
+}
+
+
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #14ae5c; /* Highlight color on focus */
+    box-shadow: 0 0 8px #14ae5c; /* Glow effect for focus */
+}
+
+.form-group button[type="submit"] {
+    background-color: #14ae5c; /* Primary green color for the submit button */
+    color: white; /* Text color for readability */
+    border: none; /* No border for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #0e8a47; /* A darker shade of green for hover effect */
+}
+
+/* Style adjustments specifically for checkbox and radio inputs */
+.form-group input[type="checkbox"], 
+.form-group input[type="radio"] {
+    margin-right: 10px; /* Space to the right for checkbox and radio */
+    width: auto; /* Revert width for checkbox and radio to default */
+    display: inline-block; /* Allow checkboxes and radios to be inline */
+}
+
+.nice-dropdown {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.home-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #0e8a47; /* Adjust color to fit the theme */
+}
+.nice-dropdown:focus {
+    border-color: #14ae5c;
+    outline: none;
+    box-shadow: 0 0 5px rgba(20, 174, 92, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+
+.container {
+
+    width: 60%;
+
+}
+}
