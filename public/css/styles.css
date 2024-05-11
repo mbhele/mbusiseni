@@ -574,7 +574,7 @@ margin-bottom: 20px;
 }
 
 .menu-items.show {
-    display: block;
+    display: flex;
 }
 .navbar a {
     color: white;
@@ -689,7 +689,7 @@ margin: 0 10px;
 height: 110vh;
 z-index: -1;
 position: absolute;
-left: -29%;
+left: -10%;
 top: 2rem;
 }
 #right-left-text {
@@ -713,15 +713,15 @@ font-weight: 800;
 left: 50%;  /* Start from the center, moving left */
 transform: translateX(-50%);
 top:1px;
-font-size: 2rem;
+font-size: 3rem;
 
 }
 
 #text-2 {
 right: 50%;  /* Start from the center, moving right */
 transform: translateX(50%);
-top: 35px;
-font-size: 2rem;
+top: 50px;
+font-size: 3rem;
 color: #4caf50;
 }
 
@@ -737,3 +737,14 @@ width: 83%;
 }
 
 
+
+@media only screen and (max-width: 320px) {
+    #mbusiseni {
+        height: 110vh;
+        z-index: -1;
+        position: absolute;
+        left: -30%;
+        top: 2rem;
+        }
+
+}
