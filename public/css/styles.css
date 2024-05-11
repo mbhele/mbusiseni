@@ -181,6 +181,19 @@ overflow: hidden; /* Prevent scrollbars during animation */
    
     cursor: pointer;
     }
+
+    #apply{
+        background-color: #55ce55;
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+       
+        cursor: pointer; 
+    }
     .navbar a {
         color: white;
         text-decoration: none;
@@ -717,11 +730,26 @@ text-align: center;
 text-decoration: none;
 display: inline-block;
 font-size: .6em;
-border-radius: 5px;
+width: 40%;
+
 cursor: pointer;
 margin: 0 10px;
 }
 
+#apply{
+    background-color: #55ce55;
+    color: white;
+border: none;
+padding: 6.8px 7px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: .6em;
+width: 40%;
+
+cursor: pointer;
+margin: 0 10px;
+}
 
 #right-left-text {
 position: relative;
