@@ -340,31 +340,27 @@ animation: moveRight 2s ease-out, fadeOut 1s ease-out 1s;
 
 
 
-button {
-        display: inline-block;
-        padding: 15px 30px;
-        font-size: 1.2em;
-        margin: 10px;
-        cursor: pointer;
-        border: none;
-        /* border-radius: 5px; */
-        transition: background-color 0.3s ease;
-    }
 
-button.red {
-        background-color: #FF0000;
-        color: #000000;
-    }
-    button.snake-border {
+    button.custom-button {
         padding: 15px 30px;
         font-size: 1.2em;
-        background-color: #14AE5C;
-        color: #000000;
         border: none;
         position: relative;
         overflow: hidden;
         cursor: pointer;
+        font-weight: bolder;
     }
+    
+    .red {
+        background-color: #FF0000;
+        color: #000000;
+    }
+    
+    .snake-border {
+        background-color: #14AE5C;
+        color: #000000;
+    }
+    
 
     .snake-border::before {
         content: "";
@@ -502,13 +498,31 @@ margin-top: 10px;
 margin-bottom: 20px;
 }
 
-
-
-
-    
+#needCustomersButton, #wantWebsiteButton {
+    padding: 15px 30px;  /* Appropriate padding for medium-size buttons */
+    font-size: 1.2em;    /* Suitable font size for readability */
+    border: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;    /* Space between buttons */
+    text-align: center;  /* Center the text inside the button */
+    color: #FFFFFF;      /* White text for better contrast */
+}
 
 /* Your existing styles remain the same */
+@media only screen and (min-width: 768px) {
+    #needCustomersButton, #wantWebsiteButton {
+        display: inline-block; /* Align buttons side by side */
+        width: auto;    /* Auto width for better control */
+        margin-right: 20px; /* Small space between buttons */
+    }
 
+    #wantWebsiteButton {
+        margin-right: 0; /* Remove space on the last button */
+    }
+}
 /* For devices with a screen width of 768px and below (tablets and smaller devices) */
 @media only screen and (max-width: 768px) {
 .hamburger-menu {
@@ -518,11 +532,18 @@ margin-bottom: 20px;
     margin-left: 1rem;
     margin-bottom: 1rem;
 }
+#needCustomersButton, #wantWebsiteButton {
+    display: block;      /* Stack buttons vertically */
+    width: 100%;         /* Full width for better mobile usability */
+    margin-right: 0;     /* No horizontal margin necessary */
+}
+
 #logo {
     left: auto;  /* Override left alignment */
     right: 5px;  /* Align logo to the right side with a small padding */
     top: -20px;  /* Move the logo up slightly by reducing top padding */
     height: 15vh;  /* Adjust logo size for smaller devices */
+
 }
 #text-1 {
     left: 50%;  /* Start from the center, moving left */
@@ -533,6 +554,7 @@ margin-bottom: 20px;
 }
 #mbusiseni {
     top: 39%;  /* Adjust vertical positioning on smaller screens if needed */
+    z-index: -1;
 }
 #text-2 {
     right: 50%;  /* Start from the center, moving right */
@@ -566,9 +588,7 @@ margin-bottom: 20px;
 .menu-items.show .bar:last-child {
     transform: translateY(-8px) rotate(-45deg);
 }
-
 .menu-items {
-    display: flex;
     position: fixed; 
     top: 50px;
     left: 0;
@@ -576,14 +596,20 @@ margin-bottom: 20px;
     height: 100vh;  
     background-color: rgb(0, 0, 0); 
     z-index: 999;  
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;  
+  
     opacity: 0;
     transform: translateY(-100%);
     transition: transform 0.5s ease, opacity 0.5s ease;
     overflow: hidden;
     pointer-events: none;  /* Disable interaction when not visible */
+    padding: 2px 0;  /* Added padding to top and bottom */
+}
+
+.menu-items a {
+    margin: 30px 0;  /* Adds vertical margin to each item */
 }
 
 .menu-items.show {
@@ -740,4 +766,10 @@ width: 83%;
 }
 }
 
+#needCustomersButton {
+    background-color: #FF0000;
+}
 
+#wantWebsiteButton {
+    background-color: #14AE5C;
+}
