@@ -266,11 +266,10 @@ z-index: 999;
 
 
 
-
 #logo {
     position: absolute;
     left: 10px;  /* Default left padding for larger screens */
-    top: 10px;   /* Top positioning, adjust as needed */
+    top: -35px;   /* Top positioning, adjust as needed */
     height: 22vh;  /* Maintain height relative to the viewport */
     border-radius: 50px;
 }
@@ -522,6 +521,7 @@ margin-bottom: 20px;
 #logo {
     left: auto;  /* Override left alignment */
     right: 5px;  /* Align logo to the right side with a small padding */
+    top: 5px;  /* Move the logo up slightly by reducing top padding */
     height: 15vh;  /* Adjust logo size for smaller devices */
 }
 #text-1 {
@@ -545,6 +545,7 @@ margin-bottom: 20px;
 
 
 .bar {
+    z-index: 999;
     width: 25px;
     height: 3px;
     background-color: #fff;
@@ -555,6 +556,7 @@ margin-bottom: 20px;
 /* Rotate the first and third bars to form an 'X' shape when menu is opened */
 .menu-items.show .bar:first-child {
     transform: translateY(8px) rotate(45deg);
+    
 }
 
 .menu-items.show .bar:nth-child(2) {
@@ -566,12 +568,30 @@ margin-bottom: 20px;
 }
 
 .menu-items {
-    display: none;
+    display: flex;
+    position: fixed; 
+    top: 50px;
+    left: 0;
+    width: 100%;  
+    height: 100vh;  
+    background-color: rgb(0, 0, 0); 
+    z-index: 999;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;  
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    overflow: hidden;
+    pointer-events: none;  /* Disable interaction when not visible */
 }
 
 .menu-items.show {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;  /* Enable interaction when visible */
 }
+
 .navbar a {
     color: white;
     text-decoration: none;
