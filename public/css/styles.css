@@ -178,7 +178,7 @@ overflow: hidden; /* Prevent scrollbars during animation */
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    border-radius: 5px;
+   
     cursor: pointer;
     }
     .navbar a {
@@ -379,7 +379,7 @@ padding: 7px 18px; /* Adjust padding to your preference */
 background-color: #14ae5c; /* Green background */
 color: #000000 !important; /* White text for better visibility */
 text-decoration: none; /* Remove underline from link */
-border-radius: 5px; /* Rounded corners */
+
 transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
 /* border: 1px solid white; */
 
