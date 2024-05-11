@@ -196,14 +196,13 @@ overflow: hidden; /* Prevent scrollbars during animation */
     }
 
     #mbusiseni {
-
-height: 110vh;
-z-index: -1;
-position:absolute;
-left: 25%;
-top: -5rem;
-
-}
+        position: absolute;
+        left: 50%;   /* Center horizontally */
+        top: 35%;    /* Center vertically */
+        transform: translate(-50%, -50%); /* Adjust the exact center of the element to be the center of the screen */
+        height: 150vh;  /* Maintain the height as 110% of the viewport height */
+        z-index: -1;
+    }
 #right-left-text {
     position: relative;
     height: 75vh;  /* Full height of the viewport */
@@ -532,11 +531,7 @@ margin-bottom: 20px;
 
 }
 #mbusiseni {
-    height: 110vh;
-    z-index: -1;
-    position: absolute;
-    left: -20%;
-    top: -5rem;
+    top: 39%;  /* Adjust vertical positioning on smaller screens if needed */
 }
 #text-2 {
     right: 50%;  /* Start from the center, moving right */
@@ -685,13 +680,7 @@ cursor: pointer;
 margin: 0 10px;
 }
 
-#mbusiseni {
-    height: 180vh;
-z-index: -1;
-position: absolute;
-left: -45%;
-top: -12rem;
-}
+
 #right-left-text {
 position: relative;
 height: 60vh;  /* Full height of the viewport */
@@ -736,23 +725,4 @@ width: 83%;
 }
 }
 
-@media only screen and (max-width: 375px) {
-    #mbusiseni {
-        height: 180vh;
-        z-index: -1;
-        position: absolute;
-        left: -70%;
-        top: -12rem;
-        }
-}
 
-@media only screen and (max-width: 320px) {
-    #mbusiseni {
-        height: 180vh;
-        z-index: -1;
-        position: absolute;
-        left: -80%;
-        top: -12rem;
-        }
-
-}
