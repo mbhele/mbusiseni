@@ -267,14 +267,13 @@ z-index: 999;
 
 
 
-#logo{
-position: absolute;
-top: -30px;
-left:20px;
-height: 22vh;
-border-radius: 50px;
+#logo {
+    position: absolute;
+    left: 10px;  /* Default left padding for larger screens */
+    top: 10px;   /* Top positioning, adjust as needed */
+    height: 22vh;  /* Maintain height relative to the viewport */
+    border-radius: 50px;
 }
-
 .select-button {
     background-color: #e70909;
     color: white;
@@ -520,8 +519,10 @@ margin-bottom: 20px;
     margin-left: 1rem;
     margin-bottom: 1rem;
 }
-#logo{
-    left: 60px;
+#logo {
+    left: auto;  /* Override left alignment */
+    right: 5px;  /* Align logo to the right side with a small padding */
+    height: 15vh;  /* Adjust logo size for smaller devices */
 }
 #text-1 {
     left: 50%;  /* Start from the center, moving left */
@@ -628,13 +629,7 @@ width: 100%; /* Full width on smaller screens */
 width: 100%; /* Full width on smaller screens */
 }
 
-#logo {
-position: absolute;
-top: -30px;
-left: 50px;
-height: 22vh;
-border-radius: 50px;
-}
+
 }
 
 /* Keyframe Animation */
