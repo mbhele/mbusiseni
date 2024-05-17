@@ -18,7 +18,7 @@ const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const upload = multer();
 const app = express();
-const port = process.env.PORT || 3010;
+const port = process.env.PORT || 3005;
 
 // Middleware configurations
 app.set('view engine', 'ejs');

@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevate Your Digital Presence | Web Design & Marketing in Cape Town</title>
+
+    <!-- Favicon links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Elevate your digital presence with stunning websites and strategic marketing campaigns in Cape Town. Serving areas including Atlantic Seaboard, City Bowl, Southern Suburbs, Northern Suburbs, Cape Flats, Southern Peninsula, West Coast Suburbs, and Helderberg.">
+    <meta name="keywords" content="web design, digital marketing, SEO optimization, Cape Town, Atlantic Seaboard, City Bowl, Southern Suburbs, Northern Suburbs, Cape Flats, Southern Peninsula, West Coast Suburbs, Helderberg">
+    <meta name="author" content="Mbusiseni Mbhele">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://web.facebook.com/profile.php?id=61558711007560">
+    <meta property="og:title" content="Elevate Your Digital Presence | Web Design & Marketing in Cape Town">
+    <meta property="og:description" content="Elevate your digital presence with stunning websites and strategic marketing campaigns in Cape Town. Serving all major areas including Atlantic Seaboard, City Bowl, Southern Suburbs, and more.">
+    <meta property="og:image" content="https://z-p3-scontent.fcpt1-1.fna.fbcdn.net/v/t39.30808-6/441155077_122112323192290366_5024041428406648193_n.png?stp=dst-png_s960x960&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=t2QT6sqC8TEQ7kNvgFbWtwE&_nc_ht=z-p3-scontent.fcpt1-1.fna&oh=00_AYD8qmf3ireo4kONwW3_2xud3XjUqCSkEw-GeGhlQnHGwA&oe=664C73E9">
+
+    <!-- Twitter (now called X) -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://twitter.com/1mbhele">
+    <meta property="twitter:title" content="Elevate Your Digital Presence | Web Design & Marketing in Cape Town">
+    <meta property="twitter:description" content="Elevate your digital presence with stunning websites and strategic marketing campaigns in Cape Town. Serving all major areas including Atlantic Seaboard, City Bowl, Southern Suburbs, and more.">
+    <meta property="twitter:image" content="https://pbs.twimg.com/profile_banners/4220891069/1715909129/600x200">
+
+    <!-- LinkedIn -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.linkedin.com/in/mbusiseni-mbhele-238131253/">
+    <meta property="og:title" content="Elevate Your Digital Presence | Web Design & Marketing in Cape Town">
+    <meta property="og:description" content="Elevate your digital presence with stunning websites and strategic marketing campaigns in Cape Town. Serving all major areas including Atlantic Seaboard, City Bowl, Southern Suburbs, and more.">
+    <meta property="og:image" content="https://media.licdn.com/dms/image/D4D16AQEKnbURojVoZw/profile-displaybackgroundimage-shrink_350_1400/0/1715455416522?e=1721260800&v=beta&t=pP69BdsocRwBT7itZbth58h53FxaRh6IxxKcfVWSiyE">
 
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-W3D6TJF8');</script>
     <!-- End Google Tag Manager -->
-
-
-    
 </head>
 <body>
     <%- include('layouts/layout') %>
 
-
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3D6TJF8"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W3D6TJF8"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    
     <div class="navbar">
         <div class="logo-container">
-            
-            <img id="logo" src="images/logo.svg" alt="logo">
+            <img id="logo" src="images/logo.svg" alt="logo" onclick="redirectToHome()">
         </div>
         <div class="hamburger-menu" onclick="toggleMenu()">
             <div class="bar"></div>
@@ -47,64 +78,47 @@
             <% } else { %>
                 <a href="/logout">Logout</a>
             <% } %>
-            <!-- <a href="Business-hire">Business to hire</a> -->
-            <!-- <a href="/login">Register Your company</a> -->
         </div>
-        
     </div>
-
-
 
     <div class="massive-div"></div>
 
-
-
     <div class="header" id="home">
         <div class="header-content">
-            <img id="mbusiseni" src="images/mbusi.svg" alt="">
+            <img id="mbusiseni" src="images/mbusi.svg" alt="Web Design and Marketing">
             <div id="right-left-text">
                 <div id="text-1">Web Design</div>
                 <div id="text-2">Marketing</div>
             </div>
             
             <div class="text-content">
-              
-              
-                <p style="font-weight: 800; z-index: 999;"><span id="Elevate" >Elevate</span> your digital presence with stunning websites and strategic marketing campaigns!</p>
-               <!-- Your HTML buttons with inline JavaScript -->
-               <button id="needCustomersButton" onclick="window.location.href='/contact';">More clients</button>
-               <button id="wantWebsiteButton" onclick="window.location.href='/contact';">Website first</button>
-               
-               
+                <p style="font-weight: 800; z-index: 999;"><span id="Elevate">Elevate</span> your digital presence with stunning websites and strategic marketing campaigns!</p>
+                <button id="needCustomersButton" onclick="window.location.href='/contact';">More clients</button>
+                <button id="wantWebsiteButton" onclick="window.location.href='/contact';">Website first</button>
             </div>
         </div>
     </div>
-    
-    
-    <!-- Moved "Select your package" heading above the table -->
- 
 
     <div class="clients" id="clients">
-        <h2 style="text-align: center; z-index: 999;">Who have We Have Worked With</h2>
+        <h2 style="text-align: center; z-index: 999;">Who We Have Worked With</h2>
         <br>
     
         <div class="company-slider">
             <div class="company-card">Abdullar dealership</div>
             <div class="company-card">Jabulanworks</div>
             <div class="company-card">B&T Plumbing</div>
-             <div class="company-card">feel at home in capetown</div>
+            <div class="company-card">feel at home in capetown</div>
             <div class="company-card">University of Stellenbosch</div>
             <div class="company-card">Innovation for life</div>
             <div class="company-card">Collenjservices</div>
-             <div class="company-card">Prof Jean Greyling</div>
-             <div class="company-card">Acutesolar</div>
+            <div class="company-card">Prof Jean Greyling</div>
+            <div class="company-card">Acutesolar</div>
             <div class="company-card">Dr Matsha</div>
             <div class="company-card">CoffeeMM</div>
             <div class="company-card">Able-energy</div>
             <div class="company-card">Draglearn</div>
             <div class="company-card">Govan Mbeki Mathematics Development Centre’s Incubator</div>
             <div class="company-card">More...</div>
-            <!-- Add more company cards as needed -->
         </div>
     </div>
 
@@ -132,19 +146,17 @@
     
     <div class="pricing" id="pricing">
         <h2 style="text-align: center;">Our Pricing</h2>
-        <p  style="text-align: center;">We offer competitive prices for our high-quality services. Contact us for detailed quotes.</p>
+        <p style="text-align: center;">We offer competitive prices for our high-quality services. Contact us for detailed quotes.</p>
         <div class="pricing-cards">
-                 <!-- Free One-Page Website Card -->
-                 <div class="pricing-card">
-                    <h3>Free One-Page Website</h3>
-                    <ul>
-                        <li>✓ One-page website design</li>
-                        <li>✓ Limited customization</li>
-                    </ul>
-                    <p class="price" style="color: red; font-weight: bold;">FREE</p>
-                    <button class="select-button" onclick="selectService('Free One-Page')">Select</button>
-                </div>
-            <!-- Basic Package Card -->
+            <div class="pricing-card">
+                <h3>Free One-Page Website</h3>
+                <ul>
+                    <li>✓ One-page website design</li>
+                    <li>✓ Limited customization</li>
+                </ul>
+                <p class="price" style="color: red; font-weight: bold;">FREE</p>
+                <button class="select-button" onclick="selectService('Free One-Page')">Select</button>
+            </div>
             <div class="pricing-card">
                 <h3>Basic</h3>
                 <ul>
@@ -157,10 +169,6 @@
                 <p class="price">R 2,452</p>
                 <button class="select-button" onclick="selectService('Basic')">Select</button>
             </div>
-    
-       
-    
-            <!-- Standard Package Card -->
             <div class="pricing-card">
                 <h3>Standard</h3>
                 <ul>
@@ -173,36 +181,25 @@
                 <p class="price">R 7,393</p>
                 <button class="select-button" onclick="selectService('Standard')">Select</button>
             </div>
-                <!-- Standard Package Card -->
-                <div class="pricing-card">
-                    <h3>Advance</h3>
-                    <ul>
-                        <li>✓ Medium 6 page standard website</li>
-                        <li>✓ Content upload</li>
-                        <li>✓ 6 pages</li>
-                        <li>✓ 2 revisions</li>
-                        <li>✓ 1 day delivery</li>
-                    </ul>
-                    <p class="price">R 16,393</p>
-                    <button class="select-button" onclick="selectService('Standard')">Select</button>
-                </div>
-    
-            <!-- More cards for other packages -->
+            <div class="pricing-card">
+                <h3>Advance</h3>
+                <ul>
+                    <li>✓ Medium 6 page standard website</li>
+                    <li>✓ Content upload</li>
+                    <li>✓ 6 pages</li>
+                    <li>✓ 2 revisions</li>
+                    <li>✓ 1 day delivery</li>
+                </ul>
+                <p class="price">R 16,393</p>
+                <button class="select-button" onclick="selectService('Standard')">Select</button>
+            </div>
         </div>
     </div>
-    
-    
- 
-
-  
 
     <div class="quote" id="quote">
         <h2>Request a Quote</h2>
         <p>Fill out the form below to get a personalized quote for your project.</p>
-        <!-- Add your quote form here -->
     </div>
-
-
 
     <div class="reviews" id="reviews">
         <div class="review-card">
@@ -217,161 +214,143 @@
             <h2>Client Review 3</h2>
             <p>"Highly recommended! Professional, creative, and efficient."</p>
         </div>
-        <!-- Add more reviews as needed -->
     </div>
    
     <footer>
-        <!-- Your footer content here -->
-        © 2024 Mbusiseni Mbhele. All rights reserved.
+        <p>&copy; 2024 Mbusiseni Mbhele. All rights reserved.</p>
         <p>Why Choose Us? We bring your ideas to life with creativity and expertise!</p>
     </footer>
 
     <script>
-document.addEventListener('scroll', function() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        function redirectToHome() {
+            window.location.href = "/";
+        }
 
-    // Move 'text-1' (Web building) to the left and 'text-2' (Marketing) to the right based on the scroll position
-    document.getElementById('text-1').style.transform = `translateX(${-scrollPosition}px)`;
-    document.getElementById('text-2').style.transform = `translateX(${scrollPosition}px)`;
-});
+        document.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
-document.body.classList.add('page-loaded');
-var customersButton = document.getElementById('needCustomersButton');
-    var websiteButton = document.getElementById('wantWebsiteButton');
-var button = document.querySelector('.select-button');
-  const opacityInterval = setInterval(() => {
+            document.getElementById('text-1').style.transform = `translateX(${-scrollPosition}px)`;
+            document.getElementById('text-2').style.transform = `translateX(${scrollPosition}px)`;
+        });
+
+        document.body.classList.add('page-loaded');
+        
+        var customersButton = document.getElementById('needCustomersButton');
+        var websiteButton = document.getElementById('wantWebsiteButton');
+        var button = document.querySelector('.select-button');
+        
+        const opacityInterval = setInterval(() => {
             const massiveDiv = document.querySelector('.massive-div');
             if (massiveDiv) {
                 let currentOpacity = parseFloat(getComputedStyle(massiveDiv).opacity);
-                currentOpacity -= 0.1; // You can adjust the decrement value
+                currentOpacity -= 0.1;
                 massiveDiv.style.opacity = Math.max(0, currentOpacity).toString();
 
-                // Check if opacity has reached zero and remove the element
                 if (currentOpacity <= 0) {
-                    clearInterval(opacityInterval); // Stop the interval
-                    massiveDiv.remove(); // Remove the element
+                    clearInterval(opacityInterval);
+                    massiveDiv.remove();
                 }
             }
         }, 1000);
-    
-        // Add smooth scrolling to anchor links
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
         });
 
-
-        
-        // Get the element with the ID 'web'
         var webElement = document.getElementById('web');
-
-        // Get the content of the element
         var content = webElement.textContent;
-
-        // Wrap the first letter in a span with a specific style
         var styledContent = '<span style="color: #14AE5C;">' + content.charAt(0) + '</span>' + content.slice(1);
-
-        // Set the modified content back to the element
         webElement.innerHTML = styledContent;
 
         function selectService(service) {
-    var whatsappNumber = '+27712542404';
-    var serviceName = '';
-    var serviceDetails = '';
+            var whatsappNumber = '+27712542404';
+            var serviceName = '';
+            var serviceDetails = '';
 
-    // Determine the service name and details based on the selected service
-    switch(service) {
-        case 'basic':
-            serviceName = 'Basic Package';
-            serviceDetails = '✓ Small 3 page simple design website\n' +
-                            '✓ Functional website\n' +
-                            '✓ 3 pages\n' +
-                            '✓ 1 revision\n' +
-                            '✓ 7 days delivery\n' +
-                            'R 7,452';
-            break;
-        case 'free-one-page':
-            serviceName = 'Free One-Page Website';
-            serviceDetails = '✓ One-page website design\n' +
-                            '✓ Limited customization\n' +
-                            'FREE';
-            break;
-        case 'standard':
-            serviceName = 'Standard Package';
-            serviceDetails = '✓ Medium 6 page standard website\n' +
-                            '✓ Content upload\n' +
-                            '✓ 6 pages\n' +
-                            '✓ 2 revisions\n' +
-                            '✓ 1 day delivery\n' +
-                            'R 16,393';
-            break;
-        case 'premium':
-            serviceName = 'Premium Package';
-            serviceDetails = '✓ High-quality website + CMS\n' +
-                            '✓ 8 pages\n' +
-                            '✓ 3 revisions\n' +
-                            '✓ 1 day delivery\n' +
-                            'R 29,806';
-            break;
-        case 'seo':
-            serviceName = 'SEO Package';
-            serviceDetails = '✓ On-page and off-page optimization\n' +
-                            '✓ Keyword research\n' +
-                            '✓ SEO audit\n' +
-                            '✓ Monthly performance reports\n' +
-                            'Contact us for a quote';
-            break;
-        case 'facebook-management':
-            serviceName = 'Facebook Management';
-            serviceDetails = '✓ Social media strategy development\n' +
-                            '✓ Content creation and posting\n' +
-                            '✓ Engagement monitoring\n' +
-                            'Contact us for a quote';
-            break;
-        case 'facebook-ads':
-            serviceName = 'Facebook Ads';
-            serviceDetails = '✓ Ad campaign setup and management\n' +
-                            '✓ Target audience research\n' +
-                            '✓ Ad performance analytics\n' +
-                            'Contact us for a quote';
-            break;
-        default:
-             }
+            switch(service) {
+                case 'basic':
+                    serviceName = 'Basic Package';
+                    serviceDetails = '✓ Small 3 page simple design website\n' +
+                                    '✓ Functional website\n' +
+                                    '✓ 3 pages\n' +
+                                    '✓ 1 revision\n' +
+                                    '✓ 7 days delivery\n' +
+                                    'R 7,452';
+                    break;
+                case 'free-one-page':
+                    serviceName = 'Free One-Page Website';
+                    serviceDetails = '✓ One-page website design\n' +
+                                    '✓ Limited customization\n' +
+                                    'FREE';
+                    break;
+                case 'standard':
+                    serviceName = 'Standard Package';
+                    serviceDetails = '✓ Medium 6 page standard website\n' +
+                                    '✓ Content upload\n' +
+                                    '✓ 6 pages\n' +
+                                    '✓ 2 revisions\n' +
+                                    '✓ 1 day delivery\n' +
+                                    'R 16,393';
+                    break;
+                case 'premium':
+                    serviceName = 'Premium Package';
+                    serviceDetails = '✓ High-quality website + CMS\n' +
+                                    '✓ 8 pages\n' +
+                                    '✓ 3 revisions\n' +
+                                    '✓ 1 day delivery\n' +
+                                    'R 29,806';
+                    break;
+                case 'seo':
+                    serviceName = 'SEO Package';
+                    serviceDetails = '✓ On-page and off-page optimization\n' +
+                                    '✓ Keyword research\n' +
+                                    '✓ SEO audit\n' +
+                                    '✓ Monthly performance reports\n' +
+                                    'Contact us for a quote';
+                    break;
+                case 'facebook-management':
+                    serviceName = 'Facebook Management';
+                    serviceDetails = '✓ Social media strategy development\n' +
+                                    '✓ Content creation and posting\n' +
+                                    '✓ Engagement monitoring\n' +
+                                    'Contact us for a quote';
+                    break;
+                case 'facebook-ads':
+                    serviceName = 'Facebook Ads';
+                    serviceDetails = '✓ Ad campaign setup and management\n' +
+                                    '✓ Target audience research\n' +
+                                    '✓ Ad performance analytics\n' +
+                                    'Contact us for a quote';
+                    break;
+                default:
+            }
 
-    // Generate the WhatsApp message
-    var message = "Hello, I'm interested in the " + serviceName + " service.\n\n";
-    message += "Service Details:\n" + serviceDetails + "\n\n";
-    message += "Please provide more information.\n";
+            var message = "Hello, I'm interested in the " + serviceName + " service.\n\n";
+            message += "Service Details:\n" + serviceDetails + "\n\n";
+            message += "Please provide more information.\n";
 
-    // Encode the message for use in a URL
-    var encodedMessage = encodeURIComponent(message);
+            var encodedMessage = encodeURIComponent(message);
+            var whatsappLink = 'https://wa.me/' + whatsappNumber + '?text=' + encodedMessage;
+            window.location.href = whatsappLink;
+        }
 
-    // Generate the WhatsApp link with the number and message
-    var whatsappLink = 'https://wa.me/' + whatsappNumber + '?text=' + encodedMessage;
+        function toggleMenu() {
+            var menuItems = document.getElementById("menuItems");
+            menuItems.classList.toggle("show");
+        }
 
-    // Redirect to the WhatsApp link
-    window.location.href = whatsappLink;
-}
+        customersButton.addEventListener('click', function() {
+            window.location.href = '/contact';
+        });
 
-function toggleMenu() {
-    var menuItems = document.getElementById("menuItems");
-    menuItems.classList.toggle("show");
-}
-
-    customersButton.addEventListener('click', function() {
-        window.location.href = '/contact';
-    });
-
-    websiteButton.addEventListener('click', function() {
-        window.location.href = '/contact';
-    });
-
-  
+        websiteButton.addEventListener('click', function() {
+            window.location.href = '/contact';
+        });
     </script>
 </body>
 </html>
